@@ -3,7 +3,7 @@
        <a class="sidebar-brand" href="index.html">
            <span class="align-middle">KonterLara</span>
        </a>
-       
+
        <ul class="sidebar-nav">
            <li class="sidebar-header">
                Home
@@ -55,6 +55,13 @@
                </a>
            </li>
 
+           <li class="sidebar-item">
+               <a class="sidebar-link" href="#">
+                   <i class="align-middle" data-feather="align-left"></i>
+                   <span class="align-middle">XL</span>
+               </a>
+           </li>
+
            <li class="sidebar-header">
                Keuangan
            </li>
@@ -62,21 +69,21 @@
            <li class="sidebar-item">
                <a class="sidebar-link" href="#">
                    <i class="align-middle" data-feather="dollar-sign"></i>
+                   <span class="align-middle">Pendapatan</span>
+               </a>
+           </li>
+
+           <li class="sidebar-item">
+               <a class="sidebar-link" href="#">
+                   <i class="align-middle" data-feather="arrow-down-circle"></i>
                    <span class="align-middle">Pemasukan</span>
                </a>
            </li>
 
            <li class="sidebar-item">
                <a class="sidebar-link" href="#">
-                   <i class="align-middle" data-feather="dollar-sign"></i>
+                   <i class="align-middle" data-feather="arrow-up-circle"></i>
                    <span class="align-middle">Pengeluaran</span>
-               </a>
-           </li>
-
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
-                   <i class="align-middle" data-feather="dollar-sign"></i>
-                   <span class="align-middle">Pendapatan</span>
                </a>
            </li>
        </ul>

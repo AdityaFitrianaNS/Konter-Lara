@@ -17,4 +17,4 @@ document.getElementById("pemasukan").innerHTML = nowDate;
 document.getElementById("pengeluaran").innerHTML = nowDate;
 
 nowDate = date.toLocaleDateString("id-ID", formatDate2);
-document.getElementById("totalPendapatan").innerHTML = nowDate;
+document.getElementById("pendapatan").innerHTML = nowDate;
