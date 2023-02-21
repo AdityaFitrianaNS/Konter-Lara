@@ -17,7 +17,7 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $input = ['owner', 'karyawan', 'user'];
+        $input = ['employee', 'user'];
         $rand_keys = array_rand($input);
 
         return [

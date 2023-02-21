@@ -73,7 +73,12 @@
                         Settings & Privacy
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item">
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </li>
         </ul>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Dashboard\AksesorisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__.'/auth.php';
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('dashboard.index');
+})->middleware(['auth', 'verified', 'admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix('dashboard')->group(function () {
+    Route::get('/aksesoris', [AksesorisController::class, 'index'])->name('aksesoris.index');
+    Route::post('/aksesoris/create', [AksesorisController::class, 'index'])->name('aksesoris.store');
+    Route::put('/aksesoris/{aksesoris}', [AksesorisController::class, 'index'])->name('aksesoris.update');
+    Route::delete('/aksesoris/{aksesoris}', [AksesorisController::class, 'index'])->name('aksesoris.destroy');
+    Route::get('/aksesoris/{aksesori}/edit', [AksesorisController::class, 'index'])->name('aksesoris.edit');
+    // Route::resource('/aksesoris', AksesorisController::class);
+})->middleware(['auth', 'admin']);

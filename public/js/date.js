@@ -1,5 +1,4 @@
 const date = new Date();
-
 const formatDate = {
     day: 'numeric',
     year: 'numeric',

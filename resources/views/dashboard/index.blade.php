@@ -86,7 +86,7 @@
         </div>
     </x-container>
     @section('script')
-        <script src="{{ ('js/date.js') }}"></script>
-        <script src="{{ ('js/chart.js') }}"></script>
+        <script src="{{ asset('js/date.js') }}"></script>
+        <script src="{{ asset('js/chart.js') }}"></script>
     @endsection
 @endsection

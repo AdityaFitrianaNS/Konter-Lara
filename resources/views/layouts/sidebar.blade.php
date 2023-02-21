@@ -11,7 +11,7 @@
 
            <li class="sidebar-item active">
                <a class="sidebar-link" href="index.html">
-                   <i class="align-middle" data-feather="sliders"></i>
+                   <i class="align-middle" data-feather="pie-chart"></i>
                    <span class="align-middle">Dashboard</span>
                </a>
            </li>

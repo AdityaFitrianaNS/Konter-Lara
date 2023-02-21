@@ -11,7 +11,8 @@
                                     <img src="img/store-icon.png" alt="Charles Hall"
                                          class="img-fluid rounded-circle" width="130" height="130"/>
                                 </div>
-                                <form>
+                                <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-2">
+                                    @csrf
                                     <div class="mb-2">
                                         <x-input-label for="email" :value="__('Email')"/>
                                         <x-form-input id="email" type="email" name="email" :value="old('email')" placeholder="Enter your email" required autofocus/>
@@ -33,8 +34,7 @@
                                         </label>
                                     </div>
                                     <div class="text-center my-3">
-                                        <a href="index.html" class="btn btn-lg btn-secondary w-100 rounded-4">Sign in</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+                                        <button type="submit" class="btn btn-lg btn-secondary w-100 rounded-4">Sign in</button>
                                     </div>
                                 </form>
                             </div>
