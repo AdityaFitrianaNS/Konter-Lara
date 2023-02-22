@@ -1,7 +1,6 @@
-@extends('layouts.app')
+<x-app-layout>
+    <div class="container-fluid p-0">
 
-@section('container')
-    <x-container>
         <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
         <div class="row">
             <div class="col-xl-12 col-xxl-12 d-flex">
@@ -84,9 +83,9 @@
                 </div>
             </div>
         </div>
-    </x-container>
+    </div>
     @section('script')
         <script src="{{ asset('js/date.js') }}"></script>
         <script src="{{ asset('js/chart.js') }}"></script>
     @endsection
-@endsection
+</x-app-layout>

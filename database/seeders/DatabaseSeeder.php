@@ -23,5 +23,8 @@ class DatabaseSeeder extends Seeder
              'remember_token' => Str::random(10),
              'role' => 'owner',
          ]);
+
+        \App\Models\Aksesoris::factory(10)->create();
+
     }
 }

@@ -59,7 +59,7 @@
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                    data-bs-toggle="dropdown">
-                    <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle me-1" alt="User Account"/>
+                    <img src="{{ asset('img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded-circle me-1" alt="User Account"/>
                     <span class="text-dark">User Account</span>
                 </a>
 

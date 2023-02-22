@@ -32,10 +32,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('dashboard')->group(function () {
-    Route::get('/aksesoris', [AksesorisController::class, 'index'])->name('aksesoris.index');
-    Route::post('/aksesoris/create', [AksesorisController::class, 'index'])->name('aksesoris.store');
-    Route::put('/aksesoris/{aksesoris}', [AksesorisController::class, 'index'])->name('aksesoris.update');
-    Route::delete('/aksesoris/{aksesoris}', [AksesorisController::class, 'index'])->name('aksesoris.destroy');
-    Route::get('/aksesoris/{aksesori}/edit', [AksesorisController::class, 'index'])->name('aksesoris.edit');
-    // Route::resource('/aksesoris', AksesorisController::class);
+    Route::controller(AksesorisController::class)->group(function (){
+        Route::get('/aksesoris', 'index')->name('aksesoris.index');
+        Route::post('/aksesoris/create', 'store')->name('aksesoris.store');
+        Route::put('/aksesoris/{aksesoris}', 'update')->name('aksesoris.update');
+        Route::delete('/aksesoris/{aksesoris}', 'destroy')->name('aksesoris.destroy');
+        Route::get('/aksesoris/{aksesori}/edit', 'edit')->name('aksesoris.edit');
+    });
 })->middleware(['auth', 'admin']);

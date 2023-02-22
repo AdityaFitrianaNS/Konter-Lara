@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aksesoris;
+use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,7 +15,7 @@ class AksesorisController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(): View
     {
         $aksesoris = Aksesoris::first()
                     ->where('user_id', Auth::user()->id)
@@ -38,8 +39,8 @@ class AksesorisController extends Controller
     {
         $validation = $request->validate([
             'nama' => ['required', 'min:5', 'max:50', 'unique:aksesoris'],
-            'jenis' => ['required', 'min:5', 'max:50'],
             'merk' => ['required', 'min:5', 'max:50'],
+            'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'max:11'],
             'harga_jual' => ['required', 'max:11'],
         ]);
@@ -48,7 +49,7 @@ class AksesorisController extends Controller
 
         Aksesoris::create($validation);
 
-        return redirect('dashboard/aksesoris/index')->with('success', 'Aksesoris berhasil ditambahkan');
+        return redirect(route('aksesoris.index'))->with('success', 'Aksesoris berhasil ditambahkan');
     }
 
     /**
