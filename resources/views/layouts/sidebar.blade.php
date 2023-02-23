@@ -4,15 +4,22 @@
            <span class="align-middle">KonterLara</span>
        </a>
 
-       <ul class="sidebar-nav">
-           <li class="sidebar-header">
-               Home
-           </li>
-
+       <ul class="sidebar-nav pt-1">
            <li class="sidebar-item active">
                <a class="sidebar-link" href="index.html">
                    <i class="align-middle" data-feather="pie-chart"></i>
                    <span class="align-middle">Dashboard</span>
+               </a>
+           </li>
+
+           <li class="sidebar-header">
+               Keuangan
+           </li>
+
+           <li class="sidebar-item">
+               <a class="sidebar-link" href="#">
+                   <i class="align-middle" data-feather="align-left"></i>
+                   <span class="align-middle">Aksesoris</span>
                </a>
            </li>
 
@@ -86,6 +93,19 @@
                    <span class="align-middle">Pengeluaran</span>
                </a>
            </li>
+
+           @if(auth()->user()->role  === 'owner')
+               <li class="sidebar-header">
+                   Karyawan
+               </li>
+
+               <li class="sidebar-item mb-2">
+                   <a class="sidebar-link" href="#">
+                       <i class="align-middle" data-feather="dollar-sign"></i>
+                       <span class="align-middle">Data Karyawan</span>
+                   </a>
+               </li>
+           @endif
        </ul>
    </div>
 </nav>

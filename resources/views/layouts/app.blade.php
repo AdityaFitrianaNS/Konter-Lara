@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('datatables/datatables.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -48,8 +48,8 @@
             </footer>
         </div>
     </div>
-    <script src="{{ asset('js/library/jquery.js') }}"></script>
-    <script src="{{ asset('datatables/datatables.js') }}"></script>
+    <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('plugins/datatables/datatables.js') }}"></script>
     @yield('script')
 </body>
 </html>

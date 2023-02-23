@@ -3356,6 +3356,13 @@ textarea.form-control-lg {
     --bs-btn-border-radius: 0.1rem
 }
 
+.btn-group-md > .btn, .btn-md {
+    --bs-btn-padding-y: 0.35rem;
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-font-size: 0.8rem;
+    --bs-btn-border-radius: 0.1rem
+}
+
 .fade {
     transition: opacity .15s linear
 }
@@ -12885,7 +12892,7 @@ body {
     background: transparent;
     color: #ced4da;
     font-size: .75rem;
-    padding: 1.5rem 1.5rem .375rem
+    padding: 1rem 1.5rem .375rem
 }
 
 .sidebar-badge {
@@ -13171,7 +13178,7 @@ svg {
 
 .simplebar-content-wrapper::-webkit-scrollbar, .simplebar-hide-scrollbar::-webkit-scrollbar {
     height: 0;
-    width: 0
+    width: 0;
 }
 
 .simplebar-content:after, .simplebar-content:before {
@@ -13412,15 +13419,18 @@ svg {
 }
 
 .page-item:not(:first-child) .page-link {
+    text-decoration: none;
     margin-left: -1px;
 }
 
 .page-item:first-child .page-link {
+    text-decoration: none;
     border-top-left-radius: var(--bs-pagination-border-radius);
     border-bottom-left-radius: var(--bs-pagination-border-radius);
 }
 
 .page-item:last-child .page-link {
+    text-decoration: none;
     border-top-right-radius: var(--bs-pagination-border-radius);
     border-bottom-right-radius: var(--bs-pagination-border-radius);
 }

@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aksesoris;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
 class AksesorisController extends Controller
 {
@@ -17,19 +17,11 @@ class AksesorisController extends Controller
      */
     public function index(): View
     {
-        $aksesoris = Aksesoris::first()
-                    ->where('user_id', Auth::user()->id)
-                    ->get();
+        $aksesoris = Aksesoris::with('user')
+            ->orderBy('kategori', 'asc')
+            ->get();
 
         return view('dashboard.aksesoris.index', compact('aksesoris'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): Response
-    {
-
     }
 
     /**
@@ -47,9 +39,14 @@ class AksesorisController extends Controller
 
         $validation['user_id'] = auth()->user()->id;
 
-        Aksesoris::create($validation);
+        if (Gate::allows('isOwner')) {
+            Aksesoris::create($validation);
 
-        return redirect(route('aksesoris.index'))->with('success', 'Aksesoris berhasil ditambahkan');
+            return redirect(route('aksesoris.index'))->with('success', 'Aksesoris berhasil ditambahkan');
+        }
+
+        return back()->with('failed', 'Kamu tidak memiliki akses!');
+
     }
 
     /**
@@ -73,6 +70,11 @@ class AksesorisController extends Controller
      */
     public function destroy(Aksesoris $aksesoris): RedirectResponse
     {
-        //
+        if (Gate::allows('isAdmin')) {
+
+            Aksesoris::destroy($aksesoris->id);
+            return back()->with('success', 'Data berhasil dihapus');
+        }
+        return back()->with('failed', 'Kamu tidak memiliki akses!');
     }
 }

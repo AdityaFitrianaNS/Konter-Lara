@@ -4,10 +4,14 @@
             <div class="card-header">
                 <h2 class="fw-semibold">Data Aksesoris</h2>
                 <p class="">Data diperbarui {{ $aksesoris[0]->updated_at->format('d F, H:i') }}</p>
-                <button class="btn btn-dark rounded-4 mb-3" data-bs-toggle="modal" data-bs-target="#modal_tambah" id="btn-add">
-                    Tambah
-                </button>
-                @include('dashboard.aksesoris.modal.create')
+
+                @if(Auth::user()->role === 'owner')
+                    <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal" data-bs-target="#modal_tambah" id="btn-add">
+                        Tambah Data
+                    </button>
+
+                    @include('dashboard.aksesoris.modal.create')
+                @endif
             </div>
 
             <table class="table table-bordered table-hover pt-1 bord" id="aksesoris">
@@ -35,11 +39,11 @@
                         <td>{!! $aksesoris->harga_jual !!}</td>
                         <td>{!! $aksesoris->updated_at->format('d F') !!}</td>
                         <td>
-                            <a href="/todolists//edit" class="btn btn-warning border-0 btn-sm rounded-3">
+                            <a href="/aksesoris/{{ $aksesoris->nama }}/edit" class="btn btn-warning border-0 btn-sm rounded-3">
                                 <i data-feather="edit"></i>
                             </a>
 
-                            <form action="/konterku/dashboard/aksesoris/{{ $aksesoris->slug }}"
+                            <form action="{{ route('aksesoris.destroy', $aksesoris->nama) }}"
                                   method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
@@ -55,6 +59,7 @@
             </table>
         </div>
     </x-container>
+
     @section('script')
         <script>
             $(document).ready(function () {

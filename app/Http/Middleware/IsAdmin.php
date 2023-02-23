@@ -15,8 +15,8 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->user()->role === 'owner' || !auth()->user()->role === 'employee') {
-            abort(403);
+        if (auth()->guest() || auth()->user()->role === 'user') {
+            return redirect(route('home'));
         }
 
         return $next($request);

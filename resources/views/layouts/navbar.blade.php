@@ -60,7 +60,7 @@
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                    data-bs-toggle="dropdown">
                     <img src="{{ asset('img/avatars/avatar.jpg') }}" class="avatar img-fluid rounded-circle me-1" alt="User Account"/>
-                    <span class="text-dark">User Account</span>
+                    <span class="text-dark">{{ auth()->user()->name }}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end mt-2 rounded-4">
