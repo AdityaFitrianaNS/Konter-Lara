@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -50,6 +51,18 @@
     </div>
     <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
     <script src="{{ asset('plugins/datatables/datatables.js') }}"></script>
+    <script src="{{ asset('plugins/toastr/toastr.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+
+        @if(session()->has('success'))
+            toastr.success('{{ session('success') }}')
+        @elseif(session()->has('failed'))
+            toastr.error('{{ session('failed') }}')
+        @endif
+    </script>
     @yield('script')
 </body>
 </html>

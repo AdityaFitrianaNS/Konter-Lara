@@ -12,9 +12,6 @@ use Illuminate\View\View;
 
 class KaryawanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(): View
     {
         $users = User::first()
@@ -25,22 +22,11 @@ class KaryawanController extends Controller
         return view('dashboard.karyawan.index', compact('users'));
     }
 
-    public function edit(User $user): Response
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, User $user): RedirectResponse
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $user): RedirectResponse
     {
         if (Gate::allows('isOwner')) {

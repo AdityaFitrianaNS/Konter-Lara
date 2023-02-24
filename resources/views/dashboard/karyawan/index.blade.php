@@ -6,7 +6,7 @@
                 <p>Diperbarui pada {{ $users[0]->updated_at->format('d F, H:i') }}</p>
             </div>
 
-            <table class="table table-bordered table-hover pt-1 bord" id="karyawan">
+            <table class="table table-bordered table-hover pt-1 bord" id="table">
                 <thead>
                 <tr class="table-title">
                     <th>No</th>
@@ -27,7 +27,8 @@
                         <td>{!! $user->created_at->format('d F') !!}</td>
                         <td>{!! $user->role !!}</td>
                         <td>
-                            <a href="/karyawan/{{ $user->nama }}/edit" class="btn btn-warning border-0 btn-sm rounded-3">
+                            <a href="/karyawan/{{ $user->nama }}/edit"
+                               class="btn btn-warning border-0 btn-sm rounded-3">
                                 <i data-feather="edit"></i>
                             </a>
 
@@ -47,12 +48,4 @@
             </table>
         </div>
     </x-container>
-
-    @section('script')
-        <script>
-            $(document).ready(function () {
-                $('#karyawan').DataTable();
-            });
-        </script>
-    @endsection
 </x-app-layout>

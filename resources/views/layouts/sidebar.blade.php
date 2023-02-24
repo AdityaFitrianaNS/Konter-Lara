@@ -6,18 +6,18 @@
 
        <ul class="sidebar-nav pt-1">
            <li class="sidebar-item active">
-               <a class="sidebar-link" href="index.html">
+               <a class="sidebar-link" href="{{ route('dashboard') }}">
                    <i class="align-middle" data-feather="pie-chart"></i>
                    <span class="align-middle">Dashboard</span>
                </a>
            </li>
 
            <li class="sidebar-header">
-               Keuangan
+               Alat
            </li>
 
            <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
+               <a class="sidebar-link" href="{{ route('aksesoris.index') }}">
                    <i class="align-middle" data-feather="align-left"></i>
                    <span class="align-middle">Aksesoris</span>
                </a>
@@ -100,7 +100,7 @@
                </li>
 
                <li class="sidebar-item mb-2">
-                   <a class="sidebar-link" href="#">
+                   <a class="sidebar-link" href="{{ route('karyawan.index') }}">
                        <i class="align-middle" data-feather="dollar-sign"></i>
                        <span class="align-middle">Data Karyawan</span>
                    </a>

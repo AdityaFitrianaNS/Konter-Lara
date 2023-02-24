@@ -36,9 +36,8 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::controller(AksesorisController::class)->group(function (){
         Route::get('/aksesoris', 'index')->name('aksesoris.index');
         Route::post('/aksesoris/create', 'store')->name('aksesoris.store');
-        Route::put('/aksesoris/{aksesoris}', 'update')->name('aksesoris.update');
-        Route::delete('/aksesoris/{aksesoris:nama}', 'destroy')->name('aksesoris.destroy');
-        Route::get('/aksesoris/{aksesoris:nama}/edit', 'edit')->name('aksesoris.edit');
+        Route::put('/aksesoris/update', 'update')->name('aksesoris.update');
+        Route::delete('/aksesoris/{aksesoris}', 'destroy')->name('aksesoris.destroy');
     });
 
     Route::controller(KaryawanController::class)->group(function (){

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('aksesoris', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nama', 50);
+            $table->string('nama', 50)->unique();
+            $table->string('slug', 50)->unique();
             $table->string('merk', 50);
             $table->string('kategori', 50);
             $table->integer('harga_asli');

@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="create" tabindex="-1">
+<div class="modal fade" id="edit" tabindex="-1">
     <div class="modal-dialog modal-sm">
         <div class="modal-content rounded-4">
             <div class="modal-header">
@@ -9,13 +9,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('aksesoris.store') }}" method="POST">
+                <form action="{{ route('aksesoris.update') }}" method="POST">
+                    @method("PUT")
                     @csrf
                     <!-- Nama Aksesoris -->
                     <div class="mb-1">
                         <label for="nama" class="form-label fw-semibold">Nama Aksesoris</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                name="nama" id="nama" required autofocus value="{{ old('nama') }}">
+                        <input type="hidden" name="slug" id="slug">
 
                         @error('nama')
                             <div class="invalid-feedback">
@@ -27,8 +29,8 @@
                     <!-- Merk -->
                     <div class="mb-1">
                         <label for="merk" class="form-label fw-semibold">Merk</label>
-                        <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk"
-                               required autofocus value="{{ old('merk') }}">
+                        <input type="text" class="form-control @error('merk') is-invalid @enderror"
+                               name="merk" id="merk" required autofocus value="{{ old('merk') }}">
 
                         @error('merk')
                             <div class="invalid-feedback">
@@ -40,7 +42,7 @@
                     <!-- Kategori -->
                     <div class="mb-1">
                         <label for="kategori" class="form-label fw-semibold">Kategori</label>
-                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
+                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori" id="kategori">
                             @if (old('kategori'))
                                 <option value="{{ old('kategori') }}">{{ old('kategori') }}</option>
                                 <option value="earphone">Earphone</option>
@@ -62,8 +64,8 @@
                     <!-- Harga Asli -->
                     <div class="mb-1">
                         <label for="harga_asli" class="form-label fw-semibold">Harga Asli</label>
-                        <input type="number" class="form-control @error('harga_asli') is-invalid @enderror"
-                               name="harga_asli" required autofocus value="{{ old('harga_asli') }}">
+                        <input type="text" class="form-control @error('harga_asli') is-invalid @enderror"
+                               name="harga_asli" id="harga_asli" required autofocus value="{{ old('harga_asli') }}">
 
                         @error('harga_asli')
                             <div class="invalid-feedback">
@@ -75,13 +77,13 @@
                     <!-- Harga Jual -->
                     <div class="mb-2">
                         <label for="harga_jual" class="form-label fw-semibold">Harga Jual</label>
-                        <input type="number" class="form-control @error('harga_jual') is-invalid @enderror"
-                               name="harga_jual" required autofocus value="{{ old('harga_jual') }}">
+                        <input type="text" class="form-control @error('harga_jual') is-invalid @enderror"
+                               name="harga_jual" id="harga_jual" required autofocus value="{{ old('harga_jual') }}">
 
                         @error('harga_jual')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
 
