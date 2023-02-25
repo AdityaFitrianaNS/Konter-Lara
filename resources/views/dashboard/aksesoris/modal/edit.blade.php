@@ -4,7 +4,7 @@
         <div class="modal-content rounded-4">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Tambah Aksesoris
+                    Ubah Aksesoris
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -88,7 +88,7 @@
                     </div>
 
                     <!-- Button -->
-                    <button type="submit" class="btn btn-md btn-primary w-100 my-1 fw-semibold rounded-4 p-2" id="btn-submit">
+                    <button type="submit" class="btn btn-md btn-primary w-100 my-1 fw-semibold rounded-4 p-2">
                         Simpan
                     </button>
                     <button type="button" class="btn btn-md btn-secondary w-100 fw-semibold rounded-4 p-2" data-bs-dismiss="modal">

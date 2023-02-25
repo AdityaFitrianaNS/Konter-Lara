@@ -3,10 +3,12 @@
         <div class="card-body p-1">
             <div class="card-header">
                 <h2 class="fw-semibold">Data Aksesoris</h2>
-                <p class="">Data diperbarui {{ $aksesoris[0]->updated_at->format('d F, H:i') }}</p>
+                <p>Data diperbarui {{ $aksesoris[0]->updated_at->format('d F, H:i') }}</p>
 
                 @if(Auth::user()->role === 'owner')
-                    <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal" data-bs-target="#create">
+                    <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal"
+                            data-bs-target="#createModal">
+                        <span data-feather="plus"></span>
                         Tambah Data
                     </button>
                 @endif
@@ -22,7 +24,9 @@
                         <th>Harga Asli</th>
                         <th>Harga Jual</th>
                         <th>Diperbarui</th>
-                        <th>Aksi</th>
+                        @if(auth()->user()->role === 'owner')
+                            <th>Aksi</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -36,28 +40,29 @@
                         <td>{!! $aksesoris->harga_asli !!}</td>
                         <td>{!! $aksesoris->harga_jual !!}</td>
                         <td>{!! $aksesoris->updated_at->format('d F') !!}</td>
-                        <td>
-                            <a class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
-                               data-bs-target="#edit" id="editModal"
-                               data-nama = "{{ $aksesoris->nama }}"
-                               data-slug = "{{ $aksesoris->slug }}"
-                               data-merk = "{{ $aksesoris->merk }}"
-                               data-kategori = "{{ $aksesoris->kategori }}"
-                               data-harga_asli = "{{ $aksesoris->harga_asli }}"
-                               data-harga_jual = "{{ $aksesoris->harga_jual }}">
-                                <i data-feather="edit"></i>
-                            </a>
-
-                            <form action="{{ route('aksesoris.destroy', $aksesoris->slug) }}"
-                                  method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-danger border-0 btn-sm rounded-2"
-                                        onclick="return confirm('Are you sure delete?')">
-                                    <span data-feather="trash-2"> </span>
+                        @if(auth()->user()->role === 'owner')
+                            <td>
+                                <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
+                                        data-bs-target="#edit" id="editModal"
+                                        data-nama="{{ $aksesoris->nama }}"
+                                        data-slug="{{ $aksesoris->slug }}"
+                                        data-merk="{{ $aksesoris->merk }}"
+                                        data-kategori="{{ $aksesoris->kategori }}"
+                                        data-harga_asli="{{ $aksesoris->harga_asli }}"
+                                        data-harga_jual="{{ $aksesoris->harga_jual }}">
+                                    <i data-feather="edit"></i>
                                 </button>
-                            </form>
-                        </td>
+                                <form action="{{ route('aksesoris.destroy', $aksesoris->slug) }}"
+                                      method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger border-0 btn-sm rounded-2"
+                                            onclick="return confirm('Are you sure delete?')">
+                                        <span data-feather="trash-2"> </span>
+                                    </button>
+                                </form>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>
@@ -66,9 +71,10 @@
         @include('dashboard.aksesoris.modal.create')
         @include('dashboard.aksesoris.modal.edit')
     </x-container>
+
     @section('script')
         <script>
-            $(document).on("click", "#editModal", function() {
+            $(document).on("click", "#editModal", function () {
                 let nama = $(this).data('nama');
                 let slug = $(this).data('slug');
                 let merk = $(this).data('merk');

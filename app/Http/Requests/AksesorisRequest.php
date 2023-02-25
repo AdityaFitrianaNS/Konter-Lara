@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AksesorisRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +19,23 @@ class AksesorisRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => ['required', 'min:5', 'max:50', 'unique:aksesoris'],
+            'merk' => ['required', 'min:5', 'max:50'],
+            'kategori' => ['required', 'min:5', 'max:50'],
+            'harga_asli' => ['required', 'max:11'],
+            'harga_jual' => ['required', 'max:11'],
         ];
+    }
+
+    public function make()
+    {
+        return auth()->user()->aksesoris()->create([
+            'nama' => $this->nama,
+            'slug' => strtolower(str_replace(' ', '-', $this->nama)),
+            'merk' => $this->merk,
+            'kategori' => $this->kategori,
+            'harga_asli' => $this->harga_asli,
+            'harga_jual' => $this->harga_jual,
+        ]);
     }
 }

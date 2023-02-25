@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function getRouteKeyName()
     {
-        return 'nama';
+        return 'email';
     }
 
     public function aksesoris(): HasMany

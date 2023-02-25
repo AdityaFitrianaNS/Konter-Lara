@@ -27,12 +27,14 @@
                         <td>{!! $user->created_at->format('d F') !!}</td>
                         <td>{!! $user->role !!}</td>
                         <td>
-                            <a href="/karyawan/{{ $user->nama }}/edit"
-                               class="btn btn-warning border-0 btn-sm rounded-3">
+                            <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
+                                    data-bs-target="#edit" id="editModal"
+                                    data-role = "{{ $user->role }}"
+                                    data-email = "{{ $user->email }}">
                                 <i data-feather="edit"></i>
-                            </a>
+                            </button>
 
-                            <form action="{{ route('karyawan.destroy', $user->name) }}"
+                            <form action="{{ route('karyawan.destroy', $user->email) }}"
                                   method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
@@ -47,5 +49,18 @@
                 </tbody>
             </table>
         </div>
+        @include('dashboard.karyawan.modal.edit')
     </x-container>
+
+    @section('script')
+        <script>
+            $(document).on("click", "#editModal", function() {
+                let role = $(this).data('role');
+                let email = $(this).data('email');
+
+                $(".modal-body #role").val(role);
+                $(".modal-body #email").val(email);
+            });
+        </script>
+    @endsection
 </x-app-layout>

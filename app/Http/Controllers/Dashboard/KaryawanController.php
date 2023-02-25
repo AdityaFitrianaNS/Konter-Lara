@@ -6,25 +6,39 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\View\View;
+use Illuminate\Validation\Rule;
 
 class KaryawanController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $users = User::first()
                 ->where('role', '=', 'employee')
                 ->orWhere('role', '=', 'user')
                 ->get();
 
-        return view('dashboard.karyawan.index', compact('users'));
+        if (Gate::allows('isOwner')) {
+            return view('dashboard.karyawan.index', compact('users'));
+        }
+
+        return back()->with('failed', 'Ups! Sepertinya ada yang tidak beres.');
     }
 
-    public function update(Request $request, User $user): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
-        //
+        $validation = $request->validate([
+            'role' => ['required', Rule::in(['employee', 'user'])]
+        ]);
+
+        if (Gate::allows('isOwner')) {
+            User::where('email', $request->input('email'))
+                ->update($validation);
+
+            return back()->with('success', 'Data berhasil diubah');
+        }
+
+        return back()->with('failed', 'Ups! Sepertinya ada yang tidak beres.');
     }
 
     public function destroy(User $user): RedirectResponse
@@ -35,6 +49,6 @@ class KaryawanController extends Controller
             return back()->with('success', 'Data berhasil dihapus');
         }
 
-        return back()->with('failed', 'Kamu tidak memiliki akses!');
+        return back()->with('failed', 'Ups! Sepertinya ada yang tidak beres.');
     }
 }
