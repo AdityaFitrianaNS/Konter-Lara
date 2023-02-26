@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('nama', 50)->unique();
             $table->string('slug', 50)->unique();
-            $table->string('merk', 50);
+            $table->string('masa_aktif', 50);
             $table->string('kategori', 50);
             $table->integer('harga_asli');
             $table->integer('harga_jual');

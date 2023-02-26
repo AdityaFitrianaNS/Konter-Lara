@@ -2,8 +2,8 @@
     <x-container>
         <div class="card-body p-1">
             <div class="card-header">
-                <h2 class="fw-semibold">Data Aksesoris</h2>
-                <p>Data diperbarui {{ $aksesoris[0]->updated_at->format('d F, H:i') }}</p>
+                <h2 class="fw-semibold">Data Axis</h2>
+                <p>Data diperbarui {{ $axis[0]->updated_at->format('d F, H:i') }}</p>
 
                 @if(Auth::user()->role === 'owner')
                     <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal"
@@ -18,8 +18,8 @@
                 <thead>
                     <tr class="table-title">
                         <th>No</th>
-                        <th>Nama Aksesoris</th>
-                        <th>Merk</th>
+                        <th>Nama</th>
+                        <th>Masa Aktif</th>
                         <th>Kategori</th>
                         <th>Harga Asli</th>
                         <th>Harga Jual</th>
@@ -31,27 +31,27 @@
                 </thead>
                 <tbody>
                 <?php $i = 1 ?>
-                @foreach ($aksesoris as $aksesoris)
+                @foreach ($axis as $axis)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{!! $aksesoris->nama !!}</td>
-                        <td>{!! $aksesoris->merk !!}</td>
-                        <td>{!! $aksesoris->kategori !!}</td>
-                        <td>{!! $aksesoris->harga_asli !!}</td>
-                        <td>{!! $aksesoris->harga_jual !!}</td>
-                        <td>{!! $aksesoris->updated_at->format('d F') !!}</td>
+                        <td>{!! $axis->nama !!}</td>
+                        <td>{!! $axis->masa_aktif !!}</td>
+                        <td>{!! $axis->kategori !!}</td>
+                        <td>{!! $axis->harga_asli !!}</td>
+                        <td>{!! $axis->harga_jual !!}</td>
+                        <td>{!! $axis->updated_at->format('d F') !!}</td>
                         @if(auth()->user()->role === 'owner')
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
                                         data-bs-target="#edit" id="editModal"
-                                        data-nama="{{ $aksesoris->nama }}"
-                                        data-slug="{{ $aksesoris->slug }}"
-                                        data-merk="{{ $aksesoris->merk }}"
-                                        data-harga_asli="{{ $aksesoris->harga_asli }}"
-                                        data-harga_jual="{{ $aksesoris->harga_jual }}">
+                                        data-nama="{{ $axis->nama }}"
+                                        data-slug="{{ $axis->slug }}"
+                                        data-masa_aktif="{{ $axis->masa_aktif }}"
+                                        data-harga_asli="{{ $axis->harga_asli }}"
+                                        data-harga_jual="{{ $axis->harga_jual }}">
                                     <i data-feather="edit"></i>
                                 </button>
-                                <form action="{{ route('aksesoris.destroy', $aksesoris->slug) }}"
+                                <form action="{{ route('axis.destroy', $axis->slug) }}"
                                       method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
@@ -67,8 +67,8 @@
                 </tbody>
             </table>
         </div>
-        @include('dashboard.aksesoris.modal.create')
-        @include('dashboard.aksesoris.modal.edit')
+        @include('dashboard.axis.modal.create')
+        @include('dashboard.axis.modal.edit')
     </x-container>
 
     @section('script')
@@ -76,13 +76,13 @@
             $(document).on("click", "#editModal", function () {
                 let nama = $(this).data('nama');
                 let slug = $(this).data('slug');
-                let merk = $(this).data('merk');
+                let masa_aktif = $(this).data('masa_aktif');
                 let harga_asli = $(this).data('harga_asli');
                 let harga_jual = $(this).data('harga_jual');
 
                 $(".modal-body #nama").val(nama);
                 $(".modal-body #slug").val(slug);
-                $(".modal-body #merk").val(merk);
+                $(".modal-body #masa_aktif").val(masa_aktif);
                 $(".modal-body #harga_asli").val(harga_asli);
                 $(".modal-body #harga_jual").val(harga_jual);
             });

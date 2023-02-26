@@ -16,7 +16,7 @@ class AksesorisFactory extends Factory
      */
     public function definition(): array
     {
-        $input = ['earphone', 'charger', 'kabel', 'pulsa', 'paket'];
+        $input = ['Earphone', 'Charger', 'Kabel charger', 'Micro USB'];
         $random = array_rand($input);
 
         $slug = $this->faker->sentence(mt_rand(1, 3));

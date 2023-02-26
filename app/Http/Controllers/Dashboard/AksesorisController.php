@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AksesorisRequest;
 use App\Models\Aksesoris;
+use App\Http\Requests\Aksesoris\AksesorisStoreRequest;
+use App\Http\Requests\Aksesoris\AksesorisUpdateRequest;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class AksesorisController extends Controller
 {
@@ -20,27 +21,18 @@ class AksesorisController extends Controller
         return view('dashboard.aksesoris.index', compact('aksesoris'));
     }
 
-    public function store(AksesorisRequest $request): RedirectResponse
+    public function store(AksesorisStoreRequest $request): RedirectResponse
     {
-        if (Gate::allows('isOwner')) {
-            $request->make();
-            return back()->with('success', 'Aksesoris berhasil ditambahkan');
-        }
-
-        return back()->with('failed', 'Tidak memiliki akses!');
+        $request->make();
+        return back()->with('success', 'Aksesoris berhasil ditambahkan');
     }
 
-    public function update(AksesorisRequest $request): RedirectResponse
+    public function update(AksesorisUpdateRequest $request): RedirectResponse
     {
+        Aksesoris::where('slug', $request->input('slug'))
+            ->update($request->validated());
 
-        if (Gate::allows('isOwner')) {
-            Aksesoris::where('slug', $request->input('slug'))
-                ->update($request->rules());
-
-            return back()->with('success', 'Data berhasil diubah');
-        }
-
-        return back()->with('failed', 'Tidak memiliki akses!');
+        return back()->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(Aksesoris $aksesoris): RedirectResponse

@@ -4,15 +4,15 @@
         <div class="modal-content rounded-4">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Ubah Aksesoris
+                    Ubah Data Aksesoris
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('aksesoris.update') }}" method="POST">
+                <form action="{{ route('axis.update') }}" method="POST">
                     @method("PUT")
                     @csrf
-                    <!-- Nama Aksesoris -->
+                    <!-- Nama -->
                     <div class="mb-1">
                         <label for="nama" class="form-label fw-semibold">Nama Aksesoris</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
@@ -22,26 +22,19 @@
 
                     <input type="hidden" name="slug" id="slug">
 
-                    <!-- Merk -->
+                    <!-- Masa Aktif -->
                     <div class="mb-1">
-                        <label for="merk" class="form-label fw-semibold">Merk</label>
-                        <input type="text" class="form-control @error('merk') is-invalid @enderror"
-                               name="merk" id="merk" required autofocus>
-                        <x-input-error :messages="$errors->get('merk')"/>
+                        <label for="masa_aktif" class="form-label fw-semibold">Masa Aktif</label>
+                        <input type="text" class="form-control @error('masa_aktif') is-invalid @enderror"
+                               name="masa_aktif" id="masa_aktif" required autofocus>
+                        <x-input-error :messages="$errors->get('masa_aktif')"/>
                     </div>
 
                     <!-- Kategori -->
                     <div class="mb-1">
                         <label for="kategori" class="form-label fw-semibold">Kategori</label>
-                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori"
-                                id="kategori">
-                            <option selected disabled>Pilih Kategori</option>
-                            <option value="earphone">Earphone</option>
-                            <option value="charger">Charger</option>
-                            <option value="charger">Casing</option>
-                            <option value="charger">USB Card</option>
-                        </select>
-                        <x-input-error :messages="$errors->get('kategori')"/>
+                        <x-select/>
+                        <x-input-error :messages="$errors->get('masa_aktif')"/>
                     </div>
 
                     <!-- Harga Asli -->
@@ -53,8 +46,8 @@
                     </div>
 
                     <!-- Harga Jual -->
-                    <div class="mb-1">
-                        <label for="harga_jual" class="form-label fw-semibold">Harga Asli</label>
+                    <div class="mb-2">
+                        <label for="harga_jual" class="form-label fw-semibold">Harga Jual</label>
                         <input type="text" class="form-control @error('harga_jual') is-invalid @enderror"
                                name="harga_jual" id="harga_jual" required autofocus>
                         <x-input-error :messages="$errors->get('harga_jual')"/>

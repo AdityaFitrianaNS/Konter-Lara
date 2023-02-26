@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Axis;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
-class AksesorisRequest extends FormRequest
+class AxisStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        if (Gate::allows('isOwner')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -19,20 +24,20 @@ class AksesorisRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:aksesoris'],
-            'merk' => ['required', 'min:5', 'max:50'],
+            'nama' => ['required', 'min:5', 'max:50', 'unique:axis'],
+            'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
-            'harga_asli' => ['required', 'max:11'],
-            'harga_jual' => ['required', 'max:11'],
+            'harga_asli' => ['required', 'min:3', 'max:11'],
+            'harga_jual' => ['required', 'min:3', 'max:11'],
         ];
     }
 
     public function make()
     {
-        return auth()->user()->aksesoris()->create([
+        return auth()->user()->axis()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
-            'merk' => $this->merk,
+            'masa_aktif' => $this->masa_aktif,
             'kategori' => $this->kategori,
             'harga_asli' => $this->harga_asli,
             'harga_jual' => $this->harga_jual,

@@ -1,17 +1,17 @@
 <!-- Modal -->
 <div class="modal fade" id="createModal" tabindex="-1">
     <div class="modal-dialog modal-sm">
-        <div class="modal-content rounded-4">
+        <div class="modal-content rounded-5">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Tambah Aksesoris
+                    Tambah Data Axis
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('aksesoris.store') }}" method="POST">
+                <form action="{{ route('axis.store') }}" method="POST">
                     @csrf
-                    <!-- Nama Aksesoris -->
+                    <!-- Nama -->
                     <div class="mb-1">
                         <label for="nama" class="form-label fw-semibold">Nama Aksesoris</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
@@ -19,32 +19,18 @@
                         <x-input-error :messages="$errors->get('nama')"/>
                     </div>
 
-                    <!-- Merk -->
+                    <!-- Masa Aktif -->
                     <div class="mb-1">
-                        <label for="merk" class="form-label fw-semibold">Merk</label>
-                        <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk"
-                               required autofocus value="{{ old('merk') }}">
-                        <x-input-error :messages="$errors->get('merk')"/>
+                        <label for="masa_aktif" class="form-label fw-semibold">Masa Aktif</label>
+                        <input type="text" class="form-control @error('masa_aktif') is-invalid @enderror" name="masa_aktif"
+                               required autofocus value="{{ old('masa_aktif') }}">
+                        <x-input-error :messages="$errors->get('masa_aktif')"/>
                     </div>
 
                     <!-- Kategori -->
                     <div class="mb-1">
                         <label for="kategori" class="form-label fw-semibold">Kategori</label>
-                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
-                            @if (old('kategori'))
-                                <option value="{{ old('kategori') }}">{{ old('kategori') }}</option>
-                                <option value="earphone">Earphone</option>
-                                <option value="charger">Charger</option>
-                                <option value="charger">Casing</option>
-                                <option value="charger">USB Card</option>
-                            @else
-                                <option selected disabled>Pilih Kategori</option>
-                                <option value="earphone">Earphone</option>
-                                <option value="charger">Charger</option>
-                                <option value="charger">Casing</option>
-                                <option value="charger">USB Card</option>
-                            @endif
-                        </select>
+                        <x-select/>
                         <x-input-error :messages="$errors->get('kategori')"/>
                     </div>
 

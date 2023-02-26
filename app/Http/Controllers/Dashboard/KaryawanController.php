@@ -8,10 +8,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class KaryawanController extends Controller
 {
-    public function index()
+    public function index(): View | RedirectResponse
     {
         $users = User::first()
                 ->where('role', '=', 'employee')
