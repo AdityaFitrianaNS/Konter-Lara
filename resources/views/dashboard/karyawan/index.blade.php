@@ -38,10 +38,7 @@
                                   method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger border-0 btn-sm rounded-2"
-                                        onclick="return confirm('Are you sure delete?')">
-                                    <span data-feather="trash-2"> </span>
-                                </button>
+                                <x-button-delete/>
                             </form>
                         </td>
                     </tr>

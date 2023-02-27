@@ -5,13 +5,7 @@
                 <h2 class="fw-semibold">Data Axis</h2>
                 <p>Data diperbarui {{ $axis[0]->updated_at->format('d F, H:i') }}</p>
 
-                @if(Auth::user()->role === 'owner')
-                    <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal"
-                            data-bs-target="#createModal">
-                        <span data-feather="plus"></span>
-                        Tambah Data
-                    </button>
-                @endif
+                <x-button-add/>
             </div>
 
             <table class="table table-bordered table-hover pt-1 bord" id="table">
@@ -55,10 +49,7 @@
                                       method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-danger border-0 btn-sm rounded-2"
-                                            onclick="return confirm('Are you sure delete?')">
-                                        <span data-feather="trash-2"> </span>
-                                    </button>
+                                    <x-button-delete/>
                                 </form>
                             </td>
                         @endif

@@ -78,12 +78,12 @@ class User extends Authenticatable
 
     public function smartfren(): HasMany
     {
-        return $this->hasMany(Saldo::class);
+        return $this->hasMany(Smartfren::class);
     }
 
     public function telkomsel(): HasMany
     {
-        return $this->hasMany(Smartfren::class);
+        return $this->hasMany(Telkomsel::class);
     }
 
     public function tri(): HasMany

@@ -13,23 +13,23 @@
                     @csrf
                     <!-- Nama Aksesoris -->
                     <div class="mb-1">
-                        <label for="nama" class="form-label fw-semibold">Nama Aksesoris</label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                               name="nama" id="nama" required autofocus value="{{ old('nama') }}">
+                        <x-input-label for="nama" :value="('Nama Aksesoris')"/>
+                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
+                               placeholder="Nama Aksesoris" required autofocus value="{{ old('nama') }}">
                         <x-input-error :messages="$errors->get('nama')"/>
                     </div>
 
                     <!-- Merk -->
                     <div class="mb-1">
-                        <label for="merk" class="form-label fw-semibold">Merk</label>
+                        <x-input-label for="merk" :value="('Merk')"/>
                         <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk"
-                               required autofocus value="{{ old('merk') }}">
+                               placeholder="Merk" required autofocus value="{{ old('merk') }}">
                         <x-input-error :messages="$errors->get('merk')"/>
                     </div>
 
                     <!-- Kategori -->
                     <div class="mb-1">
-                        <label for="kategori" class="form-label fw-semibold">Kategori</label>
+                        <x-input-label for="kategori" :value="('Kategori')"/>
                         <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
                             @if (old('kategori'))
                                 <option value="{{ old('kategori') }}">{{ old('kategori') }}</option>
@@ -50,17 +50,17 @@
 
                     <!-- Harga Asli -->
                     <div class="mb-1">
-                        <label for="harga_asli" class="form-label fw-semibold">Harga Asli</label>
-                        <input type="number" class="form-control @error('harga_asli') is-invalid @enderror"
-                               name="harga_asli" required autofocus value="{{ old('harga_asli') }}">
+                        <x-input-label for="harga_asli" :value="('Harga Asli')"/>
+                        <input type="number" class="form-control @error('harga_asli') is-invalid @enderror" name="harga_asli"
+                               placeholder="Harga Asli" required autofocus value="{{ old('harga_asli') }}">
                         <x-input-error :messages="$errors->get('harga_asli')"/>
                     </div>
 
                     <!-- Harga Jual -->
                     <div class="mb-2">
-                        <label for="harga_jual" class="form-label fw-semibold">Harga Jual</label>
-                        <input type="number" class="form-control @error('harga_jual') is-invalid @enderror"
-                               name="harga_jual" required autofocus value="{{ old('harga_jual') }}">
+                        <x-input-label for="harga_jual" :value="('Harga Jual')"/>
+                        <input type="number" class="form-control @error('harga_jual') is-invalid @enderror" name="harga_jual"
+                               placeholder="Harga Jual" required autofocus value="{{ old('harga_jual') }}">
                         <x-input-error :messages="$errors->get('harga_jual')"/>
                     </div>
 

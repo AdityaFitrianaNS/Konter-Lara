@@ -4,12 +4,12 @@
         <div class="modal-content rounded-5">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Tambah Data Axis
+                    Tambah Data Smartfren
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('axis.store') }}" method="POST">
+                <form action="{{ route('smartfren.store') }}" method="POST">
                     @csrf
                     <!-- Nama -->
                     <div class="mb-1">

@@ -16,14 +16,14 @@ class AxisFactory extends Factory
      */
     public function definition(): array
     {
-       $input = ['Pulsa', 'Paket'];
+       $input = ['Pulsa', 'Paket Internet', 'Paket Telefon'];
        $random = array_rand($input);
 
-       $slug = $this->faker->sentence(mt_rand(1, 3));
+       $slug = $this->faker->unique()->sentence(mt_rand(1, 3));
 
        return [
           'user_id' => mt_rand(10, 11),
-          'nama' => $this->faker->sentence(mt_rand(1, 2)),
+          'nama' => $this->faker->unique()->sentence(mt_rand(1, 2)),
           'slug' => strtolower(str_replace(" ", "-", $slug)),
           'masa_aktif' => $this->faker->sentence(mt_rand(1, 1)),
           'kategori' => $input[$random],

@@ -24,7 +24,7 @@ class AxisController extends Controller
     public function store(AxisStoreRequest $request): RedirectResponse
     {
         $request->make();
-        return back()->with('success', 'Data axis berhasil ditambahkan');
+        return back()->with('success', 'Data axis berhasil ditambah');
     }
 
     public function update(AxisUpdateRequest $request): RedirectResponse

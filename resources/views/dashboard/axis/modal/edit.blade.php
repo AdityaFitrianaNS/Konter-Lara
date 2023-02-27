@@ -4,7 +4,7 @@
         <div class="modal-content rounded-4">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Ubah Data Aksesoris
+                    Ubah Data Axis
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -14,7 +14,7 @@
                     @csrf
                     <!-- Nama -->
                     <div class="mb-1">
-                        <label for="nama" class="form-label fw-semibold">Nama Aksesoris</label>
+                        <x-input-label for="nama" :value="('Nama')"/>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                name="nama" id="nama" required autofocus>
                         <x-input-error :messages="$errors->get('nama')"/>
@@ -24,7 +24,7 @@
 
                     <!-- Masa Aktif -->
                     <div class="mb-1">
-                        <label for="masa_aktif" class="form-label fw-semibold">Masa Aktif</label>
+                        <x-input-label for="masa_aktif" :value="('Masa Aktif')"/>
                         <input type="text" class="form-control @error('masa_aktif') is-invalid @enderror"
                                name="masa_aktif" id="masa_aktif" required autofocus>
                         <x-input-error :messages="$errors->get('masa_aktif')"/>
@@ -32,14 +32,14 @@
 
                     <!-- Kategori -->
                     <div class="mb-1">
-                        <label for="kategori" class="form-label fw-semibold">Kategori</label>
+                        <x-input-label for="kategori" :value="('Kategori')"/>
                         <x-select/>
                         <x-input-error :messages="$errors->get('masa_aktif')"/>
                     </div>
 
                     <!-- Harga Asli -->
                     <div class="mb-1">
-                        <label for="harga_asli" class="form-label fw-semibold">Harga Asli</label>
+                        <x-input-label for="harga_asli" :value="('Harga Asli')"/>
                         <input type="text" class="form-control @error('harga_asli') is-invalid @enderror"
                                name="harga_asli" id="harga_asli" required autofocus>
                         <x-input-error :messages="$errors->get('harga_asli')"/>
@@ -47,7 +47,7 @@
 
                     <!-- Harga Jual -->
                     <div class="mb-2">
-                        <label for="harga_jual" class="form-label fw-semibold">Harga Jual</label>
+                        <x-input-label for="harga_jual" :value="('Harga Jual')"/>
                         <input type="text" class="form-control @error('harga_jual') is-invalid @enderror"
                                name="harga_jual" id="harga_jual" required autofocus>
                         <x-input-error :messages="$errors->get('harga_jual')"/>

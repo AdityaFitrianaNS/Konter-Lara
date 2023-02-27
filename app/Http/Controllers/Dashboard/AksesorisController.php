@@ -24,7 +24,7 @@ class AksesorisController extends Controller
     public function store(AksesorisStoreRequest $request): RedirectResponse
     {
         $request->make();
-        return back()->with('success', 'Aksesoris berhasil ditambahkan');
+        return back()->with('success', 'Aksesoris berhasil ditambah');
     }
 
     public function update(AksesorisUpdateRequest $request): RedirectResponse

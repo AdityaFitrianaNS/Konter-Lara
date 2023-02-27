@@ -34,22 +34,22 @@
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="indosat">
+           <li class="sidebar-item {{ request()->routeIs('indosat') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('indosat') }}">
                    <i class="align-middle" data-feather="align-left"></i>
                    <span class="align-middle">Indosat</span>
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="smartfren">
+           <li class="sidebar-item {{ request()->routeIs('smartfren') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('smartfren') }}">
                    <i class="align-middle" data-feather="align-left"></i>
                    <span class="align-middle">Smartfren</span>
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="telkomsel">
+           <li class="sidebar-item {{ request()->routeIs('telkomsel') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('telkomsel') }}">
                    <i class="align-middle" data-feather="align-left"></i>
                    <span class="align-middle">Telkomsel</span>
                </a>
