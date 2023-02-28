@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('smartfren', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('nama', 50)->unique();
             $table->string('slug', 50)->unique();
             $table->string('masa_aktif', 50);

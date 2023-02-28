@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Telkomsel;
+namespace App\Http\Requests\Tri;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class TelkomselStoreRequest extends FormRequest
+class TriStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -34,7 +34,7 @@ class TelkomselStoreRequest extends FormRequest
 
     public function make()
     {
-        return auth()->user()->telkomsel()->create([
+        return auth()->user()->tri()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
             'masa_aktif' => $this->masa_aktif,

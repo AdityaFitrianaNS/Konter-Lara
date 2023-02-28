@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('indosat', function (Blueprint $table) {
+        Schema::create('pembelian', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('nama', 50)->unique();
-            $table->string('slug', 50)->unique();
-            $table->string('masa_aktif', 50);
-            $table->string('kategori', 50);
-            $table->integer('harga_asli');
-            $table->integer('harga_jual');
+            $table->string('nama',50);
+            $table->string('slug', 50);
+            $table->string('kategori',50);
+            $table->integer('harga');
+            $table->integer('jumlah',);
+            $table->integer('total');
+            $table->integer('bayar');
+            $table->integer('kembalian');
+            $table->integer('keuntungan');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('indosat');
+        Schema::dropIfExists('pembelian');
     }
 };

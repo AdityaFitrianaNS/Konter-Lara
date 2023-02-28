@@ -29,5 +29,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Indosat::factory(50)->create();
         \App\Models\Smartfren::factory(50)->create();
         \App\Models\Telkomsel::factory(50)->create();
+        \App\Models\Tri::factory(50)->create();
+        \App\Models\Xl::factory(50)->create();
+        \App\Models\Pembelian::factory(50)->create();
     }
 }

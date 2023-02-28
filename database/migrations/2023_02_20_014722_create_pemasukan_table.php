@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('pemasukan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('hari',12);
             $table->integer('total');
+            $table->foreignId('pembelian_id');
             $table->timestamps();
         });
     }

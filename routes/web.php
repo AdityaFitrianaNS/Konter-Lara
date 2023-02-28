@@ -7,6 +7,9 @@ use App\Http\Controllers\Dashboard\AxisController;
 use App\Http\Controllers\Dashboard\IndosatController;
 use App\Http\Controllers\Dashboard\SmartfrenController;
 use App\Http\Controllers\Dashboard\TelkomselController;
+use App\Http\Controllers\Dashboard\TriController;
+use App\Http\Controllers\Dashboard\XlController;
+use App\Http\Controllers\Dashboard\PembelianController;
 use App\Http\Controllers\Dashboard\KaryawanController;
 
 require __DIR__.'/auth.php';
@@ -46,7 +49,7 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
         Route::put('/indosat/update', 'update')->name('indosat.update');
         Route::delete('/indosat/{indosat}', 'destroy')->name('indosat.destroy');
     });
-    
+
     Route::controller(SmartfrenController::class)->group(function (){
         Route::get('/smartfren', 'index')->name('smartfren');
         Route::post('/smartfren/store', 'store')->name('smartfren.store');
@@ -59,6 +62,27 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/telkomsel/store', 'store')->name('telkomsel.store');
         Route::put('/telkomsel/update', 'update')->name('telkomsel.update');
         Route::delete('/telkomsel/{telkomsel}', 'destroy')->name('telkomsel.destroy');
+    });
+
+    Route::controller(TriController::class)->group(function (){
+        Route::get('/tri', 'index')->name('tri');
+        Route::post('/tri/store', 'store')->name('tri.store');
+        Route::put('/tri/update', 'update')->name('tri.update');
+        Route::delete('/tri/{tri}', 'destroy')->name('tri.destroy');
+    });
+
+    Route::controller(XlController::class)->group(function (){
+        Route::get('/xl', 'index')->name('xl');
+        Route::post('/xl/store', 'store')->name('xl.store');
+        Route::put('/xl/update', 'update')->name('xl.update');
+        Route::delete('/xl/{xl}', 'destroy')->name('xl.destroy');
+    });
+
+    Route::controller(PembelianController::class)->group(function (){
+        Route::get('/pembelian', 'index')->name('pembelian');
+        Route::post('/pembelian/store', 'store')->name('pembelian.store');
+        Route::put('/pembelian/update', 'update')->name('pembelian.update');
+        Route::delete('/pembelian/{pembelian}', 'destroy')->name('pembelian.destroy');
     });
 
     Route::controller(KaryawanController::class)->group(function (){

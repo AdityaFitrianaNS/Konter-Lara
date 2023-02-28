@@ -55,17 +55,17 @@
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="tri">
+           <li class="sidebar-item {{ request()->routeIs('tri') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('tri') }}">
                    <i class="align-middle" data-feather="align-left"></i>
                    <span class="align-middle">Tri</span>
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
+           <li class="sidebar-item {{ request()->routeIs('xl') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('xl') }}">
                    <i class="align-middle" data-feather="align-left"></i>
-                   <span class="align-middle">XL</span>
+                   <span class="align-middle">Xl Axiata</span>
                </a>
            </li>
 
@@ -76,7 +76,7 @@
            <li class="sidebar-item">
                <a class="sidebar-link" href="#">
                    <i class="align-middle" data-feather="dollar-sign"></i>
-                   <span class="align-middle">Pendapatan</span>
+                   <span class="align-middle">Pembelian</span>
                </a>
            </li>
 

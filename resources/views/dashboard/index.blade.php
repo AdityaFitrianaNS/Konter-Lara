@@ -11,7 +11,7 @@
                         <x-card>
                             <div class="row">
                                 <div class="col mt-0">
-                                    <h5 class="card-title">Pendapatan</h5>
+                                    <h5 class="card-title">Total Pembelian</h5>
                                 </div>
 
                                 <div class="col-auto">
@@ -21,7 +21,7 @@
                                 </div>
                             </div>
 
-                            <h2 class="mb-3">Rp. 300.000</h2>
+                            <h2 class="mb-3">20 Pembeli</h2>
                             <div class="mb-0">
                                 <span class="text-muted">Pada bulan,
                                     <span id="pendapatan"></span>
