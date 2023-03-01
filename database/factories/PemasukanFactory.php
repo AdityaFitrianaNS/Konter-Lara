@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pembelian>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pemasukan>
  */
-class PembelianFactory extends Factory
+class PemasukanFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class PembelianFactory extends Factory
     public function definition(): array
     {
         $input = ['Pulsa', 'Paket Internet', 'Aksesoris'];
-        $random = array_rand($input);
+        $kategori = array_rand($input);
 
         $slug = $this->faker->unique()->sentence(mt_rand(1, 3));
 
@@ -25,13 +25,13 @@ class PembelianFactory extends Factory
             'user_id' => mt_rand(10, 11),
             'nama' => $this->faker->unique()->sentence(mt_rand(1, 2)),
             'slug' => strtolower(str_replace(" ", "-", $slug)),
-            'kategori' => $input[$random],
+            'kategori' => $input[$kategori],
             'harga' => $this->faker->randomNumber(5, true),
             'jumlah' => $this->faker->randomNumber(1, true),
             'total' => $this->faker->randomNumber(5, true),
             'bayar' => $this->faker->randomNumber(5, true),
             'kembalian' => $this->faker->randomNumber(5, true),
-            'keuntungan' => $this->faker->randomNumber(5, true),
+            'keuntungan' => $this->faker->randomNumber(4, true),
         ];
     }
 }

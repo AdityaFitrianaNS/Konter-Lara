@@ -11,7 +11,7 @@
                         <x-card>
                             <div class="row">
                                 <div class="col mt-0">
-                                    <h5 class="card-title">Total Pembelian</h5>
+                                    <h5 class="card-title">Pendapatan</h5>
                                 </div>
 
                                 <div class="col-auto">
@@ -21,7 +21,7 @@
                                 </div>
                             </div>
 
-                            <h2 class="mb-3">20 Pembeli</h2>
+                            <h3 class="mb-3">Rp. @money($pendapatan)</h3>
                             <div class="mb-0">
                                 <span class="text-muted">Pada bulan,
                                     <span id="pendapatan"></span>
@@ -42,9 +42,9 @@
                                 </div>
                             </div>
 
-                            <h2 class="mb-3">Rp. 1.000.000</h2>
+                            <h3 class="mb-3">Rp. @money($pemasukan)</h3>
                             <div class="mb-0">
-                                <span class="text-muted">Pada tanggal,
+                                <span class="text-muted">Pada bulan,
                                     <span id="pemasukan"></span>
                                 </span>
                             </div>
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <h2 class="mb-3">RP. 14.000</h2>
+                            <h3 class="mb-3">RP. 14.000</h3>
                             <div class="mb-0">
                                 <span class="text-muted">Pada tanggal,
                                     <span id="pengeluaran"></span>

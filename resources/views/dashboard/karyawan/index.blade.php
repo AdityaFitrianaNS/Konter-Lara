@@ -2,8 +2,8 @@
     <x-container>
         <div class="card-body p-1">
             <div class="card-header pb-2">
-                <h2 class="fw-semibold">Data Karyawan</h2>
-                <p>Diperbarui pada {{ $users[0]->updated_at->format('d F, H:i') }}</p>
+                <h3 class="fw-semibold">Data Karyawan</h3>
+                <p>Diperbarui pada {{ $users[0]->updated_at->isoFormat('D MMMM') }}</p>
             </div>
 
             <table class="table table-bordered table-hover pt-1 bord" id="table">
@@ -24,7 +24,7 @@
                         <td>{{ $i++ }}</td>
                         <td>{!! $user->name !!}</td>
                         <td>{!! $user->email !!}</td>
-                        <td>{!! $user->created_at->format('d F') !!}</td>
+                        <td>{!! $user->created_at->isoFormat('D MMMM Y') !!}</td>
                         <td>{!! $user->role !!}</td>
                         <td>
                             <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"

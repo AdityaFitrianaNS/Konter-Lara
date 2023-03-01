@@ -24,13 +24,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'owner',
         ]);
 
-        \App\Models\Aksesoris::factory(50)->create();
-        \App\Models\Axis::factory(50)->create();
-        \App\Models\Indosat::factory(50)->create();
-        \App\Models\Smartfren::factory(50)->create();
-        \App\Models\Telkomsel::factory(50)->create();
-        \App\Models\Tri::factory(50)->create();
-        \App\Models\Xl::factory(50)->create();
-        \App\Models\Pembelian::factory(50)->create();
+        \App\Models\Aksesoris::factory(5)->create();
+        \App\Models\Axis::factory(5)->create();
+        \App\Models\Indosat::factory(5)->create();
+        \App\Models\Smartfren::factory(5)->create();
+        \App\Models\Telkomsel::factory(5)->create();
+        \App\Models\Tri::factory(5)->create();
+        \App\Models\Xl::factory(5)->create();
+        \App\Models\Pemasukan::factory(5)->create();
     }
 }

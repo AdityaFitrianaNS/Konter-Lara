@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\AksesorisController;
 use App\Http\Controllers\Dashboard\AxisController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\IndosatController;
 use App\Http\Controllers\Dashboard\SmartfrenController;
 use App\Http\Controllers\Dashboard\TelkomselController;
 use App\Http\Controllers\Dashboard\TriController;
 use App\Http\Controllers\Dashboard\XlController;
-use App\Http\Controllers\Dashboard\PembelianController;
+use App\Http\Controllers\Dashboard\PemasukanController;
 use App\Http\Controllers\Dashboard\KaryawanController;
 
 require __DIR__.'/auth.php';
@@ -18,10 +19,6 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware(['auth', 'admin'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -29,6 +26,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
     Route::controller(AksesorisController::class)->group(function (){
         Route::get('/aksesoris', 'index')->name('aksesoris');
         Route::post('/aksesoris/store', 'store')->name('aksesoris.store');
@@ -78,11 +77,11 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
         Route::delete('/xl/{xl}', 'destroy')->name('xl.destroy');
     });
 
-    Route::controller(PembelianController::class)->group(function (){
-        Route::get('/pembelian', 'index')->name('pembelian');
-        Route::post('/pembelian/store', 'store')->name('pembelian.store');
-        Route::put('/pembelian/update', 'update')->name('pembelian.update');
-        Route::delete('/pembelian/{pembelian}', 'destroy')->name('pembelian.destroy');
+    Route::controller(PemasukanController::class)->group(function (){
+        Route::get('/pemasukan', 'index')->name('pemasukan');
+        Route::post('/pemasukan/store', 'store')->name('pemasukan.store');
+        Route::put('/pemasukan/update', 'update')->name('pemasukan.update');
+        Route::delete('/pemasukan/{pemasukan}', 'destroy')->name('pemasukan.destroy');
     });
 
     Route::controller(KaryawanController::class)->group(function (){

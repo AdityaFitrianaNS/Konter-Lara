@@ -62,7 +62,7 @@
 
                     <!-- Button -->
                     <x-button-save :value="('Simpan')"/>
-                    <x-button-cancel :value="('Cancel')"/>
+                    <x-button-cancel :value="('Batal')"/>
                 </form>
             </div>
         </div>

@@ -2,8 +2,8 @@
     <x-container>
         <div class="card-body p-1">
             <div class="card-header">
-                <h2 class="fw-semibold">Data Aksesoris</h2>
-                <p>Data diperbarui {{ $aksesoris[0]->updated_at->format('d F, H:i') }}</p>
+                <h3 class="fw-semibold">Data Aksesoris</h3>
+                <p>Terakhir diperbarui {{ $aksesoris[0]->updated_at->isoFormat('D MMMM') }}</p>
 
                 <x-button-add/>
             </div>
@@ -33,7 +33,7 @@
                         <td>{!! $aksesoris->kategori !!}</td>
                         <td>{!! $aksesoris->harga_asli !!}</td>
                         <td>{!! $aksesoris->harga_jual !!}</td>
-                        <td>{!! $aksesoris->updated_at->format('d F') !!}</td>
+                        <td>{!! $aksesoris->updated_at->isoFormat('D MMMM Y') !!}</td>
                         @if(auth()->user()->role === 'owner')
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"

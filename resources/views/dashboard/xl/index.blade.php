@@ -2,8 +2,8 @@
     <x-container>
         <div class="card-body p-1">
             <div class="card-header">
-                <h2 class="fw-semibold">Data Xl Axiata</h2>
-                <p>Data diperbarui {{ $xl[0]->updated_at->format('d F, H:i') }}</p>
+                <h3 class="fw-semibold">Data Xl Axiata</h3>
+                <p>Data diperbarui {{ $xl[0]->updated_at->isoFormat('D MMMM') }}</p>
 
                 <x-button-add/>
             </div>
@@ -33,7 +33,7 @@
                         <td>{!! $xl->kategori !!}</td>
                         <td>{!! $xl->harga_asli !!}</td>
                         <td>{!! $xl->harga_jual !!}</td>
-                        <td>{!! $xl->updated_at->format('d F') !!}</td>
+                        <td>{!! $xl->updated_at->isoFormat('D MMMM Y') !!}</td>
                         @if(auth()->user()->role === 'owner')
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"

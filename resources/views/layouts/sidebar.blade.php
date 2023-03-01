@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
    <div class="sidebar-content js-simplebar">
        <a class="sidebar-brand" href="index.html">
-           <span class="align-middle">KonterLara</span>
+           <span class="align-middle">Konter Lara</span>
        </a>
 
        <ul class="sidebar-nav pt-1">
@@ -80,8 +80,8 @@
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
+           <li class="sidebar-item {{ request()->routeIs('pemasukan') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('pemasukan') }}">
                    <i class="align-middle" data-feather="arrow-down-circle"></i>
                    <span class="align-middle">Pemasukan</span>
                </a>
