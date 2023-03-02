@@ -66,12 +66,7 @@ class User extends Authenticatable
         return $this->hasMany(Pemasukan::class);
     }
 
-    public function pendapatan(): HasMany
-    {
-        return $this->hasMany(Pendapatan::class);
-    }
-
-    public function saldo(): HasMany
+    public function pengeluaran(): HasMany
     {
         return $this->hasMany(Pengeluaran::class);
     }

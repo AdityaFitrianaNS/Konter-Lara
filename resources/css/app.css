@@ -50,7 +50,7 @@
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
     --bs-body-color: #495057;
-    --bs-body-bg: #f5f7fb;
+    --bs-body-bg: #e8e6e6;
     --bs-border-width: 1px;
     --bs-border-style: solid;
     --bs-border-color: #dee2e6;
@@ -12460,7 +12460,7 @@ textarea.form-control-lg {
 
 @media (min-width: 992px) {
     .content {
-        padding: 1.5rem 2rem 1.5rem
+        padding: 1.3rem 2rem 1.15rem 2rem;
     }
 }
 
@@ -12569,7 +12569,8 @@ textarea.form-control-lg {
 footer.footer {
     background: #fff;
     direction: ltr;
-    padding: 1rem .875rem
+    padding: 1rem .875rem;
+    box-shadow: 0 0 .50rem 0 rgb(33 37 41 / 10%);
 }
 
 footer.footer ul {
@@ -12622,7 +12623,7 @@ a.list-group-item {
 }
 
 .main {
-    background: #f5f7fb;
+    background: #f3f3f3;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     display: flex;
@@ -12636,7 +12637,7 @@ a.list-group-item {
 
 .navbar {
     border-bottom: 0;
-    box-shadow: 0 0 1rem 0 rgba(33, 37, 41, .1)
+    box-shadow: 0 0 .5rem 0 rgba(33, 37, 41, 10%);
 }
 
 @media (max-width: 767.98px) {

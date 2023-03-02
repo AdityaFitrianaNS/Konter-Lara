@@ -32,5 +32,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Tri::factory(5)->create();
         \App\Models\Xl::factory(5)->create();
         \App\Models\Pemasukan::factory(5)->create();
+        \App\Models\Pengeluaran::factory(5)->create();
     }
 }

@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="container-fluid p-0">
         <h1 class="h3 mb-3">
-            <strong>Analytics</strong>
-            Dashboard
+            <strong>Dashboard</strong>
+            Informasi
         </h1>
         <div class="row">
             <div class="col-xl-12 col-xxl-12 d-flex">
@@ -63,9 +63,9 @@
                                 </div>
                             </div>
 
-                            <h3 class="mb-3">RP. 14.000</h3>
+                            <h3 class="mb-3">Rp. @money($pengeluaran)</h3>
                             <div class="mb-0">
-                                <span class="text-muted">Pada tanggal,
+                                <span class="text-muted">Pada bulan,
                                     <span id="pengeluaran"></span>
                                 </span>
                             </div>

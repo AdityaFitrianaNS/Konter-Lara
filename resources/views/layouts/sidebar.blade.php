@@ -87,8 +87,8 @@
                </a>
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
+           <li class="sidebar-item {{ request()->routeIs('pengeluaran') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('pengeluaran') }}">
                    <i class="align-middle" data-feather="arrow-up-circle"></i>
                    <span class="align-middle">Pengeluaran</span>
                </a>

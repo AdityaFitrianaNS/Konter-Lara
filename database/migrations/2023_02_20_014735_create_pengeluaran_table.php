@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('pengeluaran', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('hari',12);
-            $table->integer('pengeluaran');
+            $table->string('nama', 125);
+            $table->string('slug', 125);
+            $table->integer('harga');
+            $table->integer('jumlah');
+            $table->integer('total');
             $table->string('keterangan');
             $table->timestamps();
         });

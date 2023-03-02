@@ -10,10 +10,16 @@ class Pengeluaran extends Model
 {
     use HasFactory;
 
+    protected $table = 'pengeluaran';
     protected $guarded = ['id'];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\TelkomselController;
 use App\Http\Controllers\Dashboard\TriController;
 use App\Http\Controllers\Dashboard\XlController;
 use App\Http\Controllers\Dashboard\PemasukanController;
+use App\Http\Controllers\Dashboard\PengeluaranController;
 use App\Http\Controllers\Dashboard\KaryawanController;
 
 require __DIR__.'/auth.php';
@@ -26,7 +27,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
 
     Route::controller(AksesorisController::class)->group(function (){
         Route::get('/aksesoris', 'index')->name('aksesoris');
@@ -82,6 +83,13 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
         Route::post('/pemasukan/store', 'store')->name('pemasukan.store');
         Route::put('/pemasukan/update', 'update')->name('pemasukan.update');
         Route::delete('/pemasukan/{pemasukan}', 'destroy')->name('pemasukan.destroy');
+    });
+
+    Route::controller(PengeluaranController::class)->group(function (){
+        Route::get('/pengeluaran', 'index')->name('pengeluaran');
+        Route::post('/pengeluaran/store', 'store')->name('pengeluaran.store');
+        Route::put('/pengeluaran/update', 'update')->name('pengeluaran.update');
+        Route::delete('/pengeluaran/{pengeluaran}', 'destroy')->name('pengeluaran.destroy');
     });
 
     Route::controller(KaryawanController::class)->group(function (){

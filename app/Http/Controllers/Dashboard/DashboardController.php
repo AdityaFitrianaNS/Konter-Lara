@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -18,6 +19,9 @@ class DashboardController extends Controller
         $pendapatan = Pemasukan::with('user')
             ->sum('keuntungan');
 
-        return view('dashboard.index', compact('pemasukan', 'pendapatan'));
+        $pengeluaran = Pengeluaran::with('user')
+            ->sum('total');
+
+        return view('dashboard.index', compact('pemasukan', 'pendapatan', 'pengeluaran'));
     }
 }
