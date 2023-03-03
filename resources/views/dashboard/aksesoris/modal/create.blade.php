@@ -12,7 +12,7 @@
                 <form action="{{ route('aksesoris.store') }}" method="POST">
                     @csrf
                     <!-- Nama Aksesoris -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama Aksesoris')"/>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
                                placeholder="Nama Aksesoris" required autofocus value="{{ old('nama') }}">
@@ -20,7 +20,7 @@
                     </div>
 
                     <!-- Merk -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="merk" :value="('Merk')"/>
                         <input type="text" class="form-control @error('merk') is-invalid @enderror" name="merk"
                                placeholder="Merk" required autofocus value="{{ old('merk') }}">
@@ -28,7 +28,7 @@
                     </div>
 
                     <!-- Kategori -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="kategori" :value="('Kategori')"/>
                         <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
                             @if (old('kategori'))
@@ -49,7 +49,7 @@
                     </div>
 
                     <!-- Harga Asli -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="harga_asli" :value="('Harga Asli')"/>
                         <input type="number" class="form-control @error('harga_asli') is-invalid @enderror" name="harga_asli"
                                placeholder="Harga Asli" required autofocus value="{{ old('harga_asli') }}">

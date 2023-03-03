@@ -10,7 +10,6 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-
     public function __invoke(Request $request): View
     {
         $pemasukan = Pemasukan::with('user')

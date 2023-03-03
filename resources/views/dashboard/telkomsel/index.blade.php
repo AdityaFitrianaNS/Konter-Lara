@@ -3,7 +3,7 @@
         <div class="card-body p-1">
             <div class="card-header">
                 <h3 class="fw-semibold">Data Telkomsel</h3>
-                <p>Data diperbarui {{ $telkomsel[0]->updated_at->isoFormat('D MMMM') }}</p>
+                <p>Data terakhir diperbarui {{ $telkomsel[0]->updated_at->isoFormat('D MMMM') }}</p>
 
                 <x-button-add/>
             </div>

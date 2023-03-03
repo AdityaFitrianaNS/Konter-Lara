@@ -68,9 +68,9 @@
                         <i class="align-middle me-1" data-feather="user"></i>
                         Profile
                     </a>
-                    <a class="dropdown-item py-2" href="index.html">
+                    <a class="dropdown-item py-2" href="{{ route('profile.edit') }}">
                         <i class="align-middle me-1" data-feather="settings"></i>
-                        Settings & Privacy
+                        Settings Account
                     </a>
                     <div class="dropdown-divider"></div>
                     <form method="POST" action="{{ route('logout') }}">

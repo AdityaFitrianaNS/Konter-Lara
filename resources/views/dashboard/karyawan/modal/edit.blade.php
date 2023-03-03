@@ -31,12 +31,8 @@
                     </div>
 
                     <!-- Button -->
-                    <button type="submit" class="btn btn-md btn-primary w-100 my-1 fw-semibold rounded-4 p-2">
-                        Simpan
-                    </button>
-                    <button type="button" class="btn btn-md btn-secondary w-100 fw-semibold rounded-4 p-2" data-bs-dismiss="modal">
-                        Batal
-                    </button>
+                    <x-button-save :value="('Simpan')"/>
+                    <x-button-cancel :value="('Batal')"/>
                 </form>
             </div>
         </div>

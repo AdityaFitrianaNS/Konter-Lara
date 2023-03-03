@@ -13,7 +13,7 @@
                     @method("PUT")
                     @csrf
                     <!-- Nama Aksesoris -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama Aksesoris')"/>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                name="nama" id="nama" required autofocus>
@@ -23,7 +23,7 @@
                     <input type="hidden" name="slug" id="slug">
 
                     <!-- Merk -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="merk" :value="('Merk')"/>
                         <input type="text" class="form-control @error('merk') is-invalid @enderror"
                                name="merk" id="merk" required autofocus>
@@ -31,7 +31,7 @@
                     </div>
 
                     <!-- Kategori -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="kategori" :value="('Kategori')"/>
                         <select class="form-select @error('kategori') is-invalid @enderror" name="kategori"
                                 id="kategori">
@@ -45,7 +45,7 @@
                     </div>
 
                     <!-- Harga Asli -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="harga_asli" :value="('Harga Asli')"/>
                         <input type="text" class="form-control @error('harga_asli') is-invalid @enderror"
                                name="harga_asli" id="harga_asli" required autofocus>
@@ -53,7 +53,7 @@
                     </div>
 
                     <!-- Harga Jual -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="harga_jual" :value="('Harga Jual')"/>
                         <input type="text" class="form-control @error('harga_jual') is-invalid @enderror"
                                name="harga_jual" id="harga_jual" required autofocus>

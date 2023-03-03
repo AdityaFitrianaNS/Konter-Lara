@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\TriController;
 use App\Http\Controllers\Dashboard\XlController;
 use App\Http\Controllers\Dashboard\PemasukanController;
 use App\Http\Controllers\Dashboard\PengeluaranController;
+use App\Http\Controllers\Dashboard\PendapatanController;
 use App\Http\Controllers\Dashboard\KaryawanController;
 
 require __DIR__.'/auth.php';
@@ -91,6 +92,8 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
         Route::put('/pengeluaran/update', 'update')->name('pengeluaran.update');
         Route::delete('/pengeluaran/{pengeluaran}', 'destroy')->name('pengeluaran.destroy');
     });
+
+    Route::get('/pendapatan', PendapatanController::class)->name('pendapatan');
 
     Route::controller(KaryawanController::class)->group(function (){
         Route::get('/karyawan', 'index')->name('karyawan');

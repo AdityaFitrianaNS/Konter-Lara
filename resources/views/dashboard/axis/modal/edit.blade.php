@@ -13,7 +13,7 @@
                     @method("PUT")
                     @csrf
                     <!-- Nama -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama')"/>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                name="nama" id="nama" required autofocus>
@@ -23,7 +23,7 @@
                     <input type="hidden" name="slug" id="slug">
 
                     <!-- Masa Aktif -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="masa_aktif" :value="('Masa Aktif')"/>
                         <input type="text" class="form-control @error('masa_aktif') is-invalid @enderror"
                                name="masa_aktif" id="masa_aktif" required autofocus>
@@ -31,14 +31,14 @@
                     </div>
 
                     <!-- Kategori -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="kategori" :value="('Kategori')"/>
                         <x-select/>
                         <x-input-error :messages="$errors->get('masa_aktif')"/>
                     </div>
 
                     <!-- Harga Asli -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="harga_asli" :value="('Harga Asli')"/>
                         <input type="text" class="form-control @error('harga_asli') is-invalid @enderror"
                                name="harga_asli" id="harga_asli" required autofocus>

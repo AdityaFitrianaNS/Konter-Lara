@@ -3,9 +3,12 @@
         <div class="card-body p-1">
             <div class="card-header">
                 <h3 class="fw-semibold">Data Pemasukan</h3>
-                <p>Data diperbarui {{ $pemasukan[0]->updated_at->isoFormat('D MMMM') }}</p>
+                <p>Data terakhir diperbarui {{ $pemasukan[0]->updated_at->isoFormat('D MMMM') }}</p>
 
-                <x-button-add/>
+                <button class="btn btn-dark btn-md rounded-4 mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
+                    <span data-feather="plus"></span>
+                    Tambah Data
+                </button>
             </div>
 
             <table class="table table-bordered table-hover pt-1 bord" id="table">
@@ -65,6 +68,8 @@
     </x-container>
 
     @section('script')
+        <script src="{{ asset('js/pemasukan.js') }}"></script>
+        <script src="{{ asset('js/keuntungan.js') }}"></script>
         <script>
             $(document).on("click", "#editModal", function () {
                 let nama = $(this).data('nama');
@@ -83,54 +88,6 @@
                 $(".modal-body #bayar").val(bayar);
                 $(".modal-body #kembalian").val(kembalian);
             });
-
-            $("#harga").keyup(function () {
-                let harga = parseInt($("#harga").val());
-                let jumlah = parseInt($("#jumlah").val());
-                let total = harga * jumlah;
-
-                $("#total").val(total);
-            });
-
-            $("#jumlah").keyup(function () {
-                let harga = parseInt($("#harga").val());
-                let jumlah = parseInt($("#jumlah").val());
-                let total = harga * jumlah;
-
-                $("#total").val(total);
-            });
-
-            $("#bayar").keyup(function () {
-                let harga = parseInt($("#harga").val());
-                let jumlah = parseInt($("#jumlah").val());
-                let bayar = parseInt($("#bayar").val());
-                let total = harga * jumlah;
-                let kembalian = bayar - total;
-
-                $("#kembalian").val(kembalian);
-            });
-
-            function jumlahKeuntungan() {
-                const kategori = document.getElementById("kategori").value;
-                const keuntungan = document.getElementById("keuntungan");
-
-                switch (kategori) {
-                    case "Aksesoris Handphone":
-                        keuntungan.value = 5000;
-                        break;
-                    case "Pulsa":
-                        keuntungan.value = 2000;
-                        break
-                    case "Paket Internet":
-                        keuntungan.value = 4000;
-                        break;
-                    case "Paket Telepon":
-                        keuntungan.value = 2000;
-                        break;
-                    default:
-                        keuntungan.value = 0;
-                }
-            }
         </script>
     @endsection
 </x-app-layout>

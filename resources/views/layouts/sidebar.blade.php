@@ -73,10 +73,10 @@
                Keuangan
            </li>
 
-           <li class="sidebar-item">
-               <a class="sidebar-link" href="#">
+           <li class="sidebar-item {{ request()->routeIs('pendapatan') ? 'active' : '' }}">
+               <a class="sidebar-link" href="{{ route('pendapatan') }}">
                    <i class="align-middle" data-feather="dollar-sign"></i>
-                   <span class="align-middle">Pembelian</span>
+                   <span class="align-middle">Pendapatan</span>
                </a>
            </li>
 

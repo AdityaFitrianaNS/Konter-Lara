@@ -3,7 +3,7 @@
         <div class="card-body p-1">
             <div class="card-header">
                 <h3 class="fw-semibold">Data Xl Axiata</h3>
-                <p>Data diperbarui {{ $xl[0]->updated_at->isoFormat('D MMMM') }}</p>
+                <p>Data terakhir diperbarui {{ $xl[0]->updated_at->isoFormat('D MMMM') }}</p>
 
                 <x-button-add/>
             </div>

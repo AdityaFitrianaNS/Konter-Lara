@@ -4,7 +4,7 @@
         <div class="modal-content rounded-4">
             <div class="modal-header">
                 <h4 class="modal-title fw-semibold">
-                    Ubah Data Pemasukan
+                    Ubah Data Pembeli
                 </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -14,7 +14,7 @@
                     @csrf
                     <div class="row g-2">
                         <!-- Nama -->
-                        <div class="col-md-6 mb-1">
+                        <div class="col-md-6">
                             <x-input-label for="nama" :value="('Nama')"/>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                    name="nama" id="nama" required autofocus>
@@ -24,7 +24,7 @@
                         <input type="hidden" name="slug" id="slug">
 
                         <!-- Harga -->
-                        <div class="col-md-6 mb-1">
+                        <div class="col-md-6">
                             <x-input-label for="harga" :value="('Harga')"/>
                             <input type="number" class="form-control @error('harga') is-invalid @enderror"
                                    name="harga" id="harga" required autofocus value="{{ old('harga') }}">
@@ -32,7 +32,7 @@
                         </div>
 
                         <!-- Jumlah -->
-                        <div class="col-md-6 mb-1">
+                        <div class="col-md-6">
                             <x-input-label for="jumlah" :value="('Jumlah')"/>
                             <input type="number" class="form-control @error('jumlah') is-invalid @enderror"
                                    name="jumlah" id="jumlah" required autofocus value="{{ old('jumlah') }}">
@@ -40,7 +40,7 @@
                         </div>
 
                         <!-- Total -->
-                        <div class="col-md-6 mb-1">
+                        <div class="col-md-6">
                             <x-input-label for="total" :value="('Total')"/>
                             <input type="number" class="form-control @error('total') is-invalid @enderror"
                                    name="total" id="total" required autofocus value="{{ old('total') }}">
@@ -48,7 +48,7 @@
                         </div>
 
                         <!-- Bayar -->
-                        <div class="col-md-6 mb-1">
+                        <div class="col-md-6">
                             <x-input-label for="bayar" :value="('Uang Bayar')"/>
                             <input type="number" class="form-control @error('bayar') is-invalid @enderror"
                                    name="bayar" id="bayar" required autofocus value="{{ old('bayar') }}">

@@ -12,7 +12,7 @@
                 <form action="{{ route('xl.store') }}" method="POST">
                     @csrf
                     <!-- Nama -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama')"/>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                name="nama" required autofocus value="{{ old('nama') }}">
@@ -20,7 +20,7 @@
                     </div>
 
                     <!-- Masa Aktif -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="masa_aktif" :value="('Masa Aktif')"/>
                         <input type="text" class="form-control @error('masa_aktif') is-invalid @enderror" name="masa_aktif"
                                required autofocus value="{{ old('masa_aktif') }}">
@@ -28,14 +28,14 @@
                     </div>
 
                     <!-- Kategori -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="kategori" :value="('Kategori')"/>
                         <x-select/>
                         <x-input-error :messages="$errors->get('kategori')"/>
                     </div>
 
                     <!-- Harga Asli -->
-                    <div class="mb-1">
+                    <div class="mb-2">
                         <x-input-label for="harga_asli" :value="('Harga Asli')"/>
                         <input type="number" class="form-control @error('harga_asli') is-invalid @enderror"
                                name="harga_asli" required autofocus value="{{ old('harga_asli') }}">

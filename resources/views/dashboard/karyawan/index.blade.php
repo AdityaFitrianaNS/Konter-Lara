@@ -3,7 +3,7 @@
         <div class="card-body p-1">
             <div class="card-header pb-2">
                 <h3 class="fw-semibold">Data Karyawan</h3>
-                <p>Diperbarui pada {{ $users[0]->updated_at->isoFormat('D MMMM') }}</p>
+                <p>Data terakhir diperbarui {{ $users[0]->updated_at->isoFormat('D MMMM') }}</p>
             </div>
 
             <table class="table table-bordered table-hover pt-1 bord" id="table">
