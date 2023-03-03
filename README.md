@@ -1,27 +1,26 @@
-## Instalation
-### Prepare dependencies
+## Instalasi
+
+### Persiapan dependencies
 ```
 - composer install
-- copy .env.example and change to .env
+- copy .env.example, and paste change to .env 
+or 
+- change name .env.example to .env
 ```
-
-### Change Database Config
-```Change Database configuration in .env and .env.testing```
   
-### Generate and Migration
+### Generate dan Migration
 ```
 - php artisan key:generate
 - php artisan migrate --seed
 ```
 
-### Prepare Front End
+### Persiapan Front End
 ```
 - npm install
 - npm run dev
 ```
 
-### Run Test and Development Server
+### Run Development Server
 ```
-- php artisan test
 - php artisan serve
 ```
