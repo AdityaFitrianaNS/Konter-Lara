@@ -52,6 +52,7 @@
     <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
     <script src="{{ asset('plugins/datatables/datatables.js') }}"></script>
     <script src="{{ asset('plugins/toastr/toastr.js') }}"></script>
+    @stack('script')
     <script>
         $(document).ready(function () {
             $('#table').DataTable();
