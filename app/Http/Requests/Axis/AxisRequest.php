@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Tri;
+namespace App\Http\Requests\Axis;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class TriStoreRequest extends FormRequest
+class AxisRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,7 +25,7 @@ class TriStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:indosat'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('axis')->ignore($this->request->get('id'))],
             'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],
@@ -34,7 +35,7 @@ class TriStoreRequest extends FormRequest
 
     public function make()
     {
-        return auth()->user()->tri()->create([
+        return auth()->user()->axis()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
             'masa_aktif' => $this->masa_aktif,

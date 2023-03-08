@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Smartfren\SmartfrenStoreRequest;
-use App\Http\Requests\Smartfren\SmartfrenUpdateRequest;
 use App\Models\Smartfren;
+use App\Http\Requests\Smartfren\SmartfrenRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class SmartfrenController extends Controller
         return view('dashboard.smartfren.index', compact('smartfren'));
     }
 
-    public function store(SmartfrenStoreRequest $request): RedirectResponse
+    public function store(SmartfrenRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data smartfren berhasil ditambah');
     }
 
-    public function update(SmartfrenUpdateRequest $request): RedirectResponse
+    public function update(SmartfrenRequest $request): RedirectResponse
     {
         Smartfren::where('slug', $request->input('slug'))
             ->update($request->validated());

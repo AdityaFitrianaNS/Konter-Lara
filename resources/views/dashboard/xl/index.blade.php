@@ -38,6 +38,7 @@
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
                                         data-bs-target="#edit" id="editModal"
+                                        data-id="{{ $xl->id }}"
                                         data-nama="{{ $xl->nama }}"
                                         data-slug="{{ $xl->slug }}"
                                         data-masa_aktif="{{ $xl->masa_aktif }}"

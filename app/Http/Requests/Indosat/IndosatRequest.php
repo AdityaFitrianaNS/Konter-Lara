@@ -4,8 +4,9 @@ namespace App\Http\Requests\Indosat;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class IndosatStoreRequest extends FormRequest
+class IndosatRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,7 +25,7 @@ class IndosatStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:indosat'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('indosat')->ignore($this->request->get('id'))],
             'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],

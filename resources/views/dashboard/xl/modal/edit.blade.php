@@ -12,6 +12,9 @@
                 <form action="{{ route('xl.update') }}" method="POST">
                     @method("PUT")
                     @csrf
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="slug" id="slug">
+                    
                     <!-- Nama -->
                     <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama')"/>

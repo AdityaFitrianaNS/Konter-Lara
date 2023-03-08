@@ -38,6 +38,7 @@
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
                                         data-bs-target="#edit" id="editModal"
+                                        data-id="{{ $aksesoris->id }}"
                                         data-nama="{{ $aksesoris->nama }}"
                                         data-slug="{{ $aksesoris->slug }}"
                                         data-merk="{{ $aksesoris->merk }}"
@@ -65,12 +66,14 @@
     @section('script')
         <script>
             $(document).on("click", "#editModal", function () {
+                let id = $(this).data('id');
                 let nama = $(this).data('nama');
                 let slug = $(this).data('slug');
                 let merk = $(this).data('merk');
                 let harga_asli = $(this).data('harga_asli');
                 let harga_jual = $(this).data('harga_jual');
 
+                $(".modal-body #id").val(id);
                 $(".modal-body #nama").val(nama);
                 $(".modal-body #slug").val(slug);
                 $(".modal-body #merk").val(merk);

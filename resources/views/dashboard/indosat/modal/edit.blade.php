@@ -12,6 +12,9 @@
                 <form action="{{ route('indosat.update') }}" method="POST">
                     @method("PUT")
                     @csrf
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="slug" id="slug">
+
                     <!-- Nama -->
                     <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama')"/>
@@ -19,8 +22,6 @@
                                name="nama" id="nama" required autofocus>
                         <x-input-error :messages="$errors->get('nama')"/>
                     </div>
-
-                    <input type="hidden" name="slug" id="slug">
 
                     <!-- Masa Aktif -->
                     <div class="mb-2">

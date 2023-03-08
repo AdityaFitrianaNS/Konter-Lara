@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Indosat;
+namespace App\Http\Requests\Smartfren;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class IndosatUpdateRequest extends FormRequest
+class SmartfrenRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         if (Gate::allows('isOwner')) {
@@ -27,11 +25,23 @@ class IndosatUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('smartfren')->ignore($this->request->get('id'))],
             'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],
             'harga_jual' => ['required', 'min:3', 'max:11'],
         ];
+    }
+
+    public function make()
+    {
+        return auth()->user()->smartfren()->create([
+            'nama' => $this->nama,
+            'slug' => strtolower(str_replace(' ', '-', $this->nama)),
+            'masa_aktif' => $this->masa_aktif,
+            'kategori' => $this->kategori,
+            'harga_asli' => $this->harga_asli,
+            'harga_jual' => $this->harga_jual,
+        ]);
     }
 }

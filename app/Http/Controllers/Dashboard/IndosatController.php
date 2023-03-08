@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indosat\IndosatStoreRequest;
-use App\Http\Requests\Indosat\IndosatUpdateRequest;
 use App\Models\Indosat;
+use App\Http\Requests\Indosat\IndosatRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class IndosatController extends Controller
         return view('dashboard.indosat.index', compact('indosat'));
     }
 
-    public function store(IndosatStoreRequest $request): RedirectResponse
+    public function store(IndosatRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data indosat berhasil ditambah');
     }
 
-    public function update(IndosatUpdateRequest $request): RedirectResponse
+    public function update(IndosatRequest $request): RedirectResponse
     {
         Indosat::where('slug', $request->input('slug'))
             ->update($request->validated());

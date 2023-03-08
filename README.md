@@ -42,5 +42,8 @@ or
 ```
 - php artisan serve
 ```
+### Akun Owner
+email    : owner@gmail.com
+password : password
 
 Template menggunakan <a href="https://github.com/adminkit/adminkit">AdminKit</a> dan mengubah beberapa stylenya di project `Konter Lara`.

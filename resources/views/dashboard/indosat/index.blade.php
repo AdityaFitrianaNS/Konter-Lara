@@ -41,6 +41,7 @@
                             <td>
                                 <button class="btn btn-warning border-0 btn-sm rounded-3" data-bs-toggle="modal"
                                         data-bs-target="#edit" id="editModal"
+                                        data-id="{{ $indosat->id }}"
                                         data-nama="{{ $indosat->nama }}"
                                         data-slug="{{ $indosat->slug }}"
                                         data-masa_aktif="{{ $indosat->masa_aktif }}"

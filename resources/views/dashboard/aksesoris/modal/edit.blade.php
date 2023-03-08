@@ -12,6 +12,9 @@
                 <form action="{{ route('aksesoris.update') }}" method="POST">
                     @method("PUT")
                     @csrf
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="slug" id="slug">
+
                     <!-- Nama Aksesoris -->
                     <div class="mb-2">
                         <x-input-label for="nama" :value="('Nama Aksesoris')"/>
@@ -19,8 +22,6 @@
                                name="nama" id="nama" required autofocus>
                         <x-input-error :messages="$errors->get('nama')"/>
                     </div>
-
-                    <input type="hidden" name="slug" id="slug">
 
                     <!-- Merk -->
                     <div class="mb-2">
@@ -33,13 +34,12 @@
                     <!-- Kategori -->
                     <div class="mb-2">
                         <x-input-label for="kategori" :value="('Kategori')"/>
-                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori"
-                                id="kategori">
+                        <select class="form-select @error('kategori') is-invalid @enderror" name="kategori" id="kategori">
                             <option selected disabled>Pilih Kategori</option>
-                            <option value="earphone">Earphone</option>
-                            <option value="charger">Charger</option>
-                            <option value="charger">Casing</option>
-                            <option value="charger">USB Card</option>
+                            <option value="Earphone">Earphone</option>
+                            <option value="Charger">Charger</option>
+                            <option value="Casing">Casing</option>
+                            <option value="USB Card">USB Card</option>
                         </select>
                         <x-input-error :messages="$errors->get('kategori')"/>
                     </div>

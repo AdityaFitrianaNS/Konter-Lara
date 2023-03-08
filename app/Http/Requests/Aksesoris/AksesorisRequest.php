@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Telkomsel;
+namespace App\Http\Requests\Aksesoris;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class TelkomselStoreRequest extends FormRequest
+class AksesorisRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,8 +25,8 @@ class TelkomselStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:indosat'],
-            'masa_aktif' => ['required', 'min:5', 'max:50'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('aksesoris')->ignore($this->request->get('id'))],
+            'merk' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],
             'harga_jual' => ['required', 'min:3', 'max:11'],
@@ -34,10 +35,10 @@ class TelkomselStoreRequest extends FormRequest
 
     public function make()
     {
-        return auth()->user()->telkomsel()->create([
+        return auth()->user()->aksesoris()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
-            'masa_aktif' => $this->masa_aktif,
+            'merk' => $this->merk,
             'kategori' => $this->kategori,
             'harga_asli' => $this->harga_asli,
             'harga_jual' => $this->harga_jual,

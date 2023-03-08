@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Aksesoris;
+namespace App\Http\Requests\Tri;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class AksesorisStoreRequest extends FormRequest
+class TriRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,8 +25,8 @@ class AksesorisStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:aksesoris'],
-            'merk' => ['required', 'min:5', 'max:50'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('tri')->ignore($this->request->get('id'))],
+            'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],
             'harga_jual' => ['required', 'min:3', 'max:11'],
@@ -34,10 +35,10 @@ class AksesorisStoreRequest extends FormRequest
 
     public function make()
     {
-        return auth()->user()->aksesoris()->create([
+        return auth()->user()->tri()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
-            'merk' => $this->merk,
+            'masa_aktif' => $this->masa_aktif,
             'kategori' => $this->kategori,
             'harga_asli' => $this->harga_asli,
             'harga_jual' => $this->harga_jual,

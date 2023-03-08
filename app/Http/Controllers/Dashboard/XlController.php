@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Xl\XlStoreRequest;
-use App\Http\Requests\Xl\XlUpdateRequest;
 use App\Models\Xl;
+use App\Http\Requests\Xl\XlRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class XlController extends Controller
         return view('dashboard.xl.index', compact('xl'));
     }
 
-    public function store(XlStoreRequest $request): RedirectResponse
+    public function store(XlRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data xl berhasil ditambah');
     }
 
-    public function update(XlUpdateRequest $request): RedirectResponse
+    public function update(XlRequest $request): RedirectResponse
     {
         Xl::where('slug', $request->input('slug'))
             ->update($request->validated());

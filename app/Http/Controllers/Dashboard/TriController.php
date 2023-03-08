@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Tri\TriStoreRequest;
-use App\Http\Requests\Tri\TriUpdateRequest;
 use App\Models\Tri;
+use App\Http\Requests\Tri\TriRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class TriController extends Controller
         return view('dashboard.tri.index', compact('tri'));
     }
 
-    public function store(TriStoreRequest $request): RedirectResponse
+    public function store(TriRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data tri berhasil ditambah');
     }
 
-    public function update(TriUpdateRequest $request): RedirectResponse
+    public function update(TriRequest $request): RedirectResponse
     {
         Tri::where('slug', $request->input('slug'))
             ->update($request->validated());

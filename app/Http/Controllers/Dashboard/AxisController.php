@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Axis;
-use App\Http\Requests\Axis\AxisStoreRequest;
-use App\Http\Requests\Axis\AxisUpdateRequest;
+use App\Http\Requests\Axis\AxisRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class AxisController extends Controller
         return view('dashboard.axis.index', compact('axis'));
     }
 
-    public function store(AxisStoreRequest $request): RedirectResponse
+    public function store(AxisRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data axis berhasil ditambah');
     }
 
-    public function update(AxisUpdateRequest $request): RedirectResponse
+    public function update(AxisRequest $request): RedirectResponse
     {
         Axis::where('slug', $request->input('slug'))
             ->update($request->validated());

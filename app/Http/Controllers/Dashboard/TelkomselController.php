@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Telkomsel\TelkomselStoreRequest;
-use App\Http\Requests\Telkomsel\TelkomselUpdateRequest;
 use App\Models\Telkomsel;
+use App\Http\Requests\Telkomsel\TelkomselRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class TelkomselController extends Controller
         return view('dashboard.telkomsel.index', compact('telkomsel'));
     }
 
-    public function store(TelkomselStoreRequest $request): RedirectResponse
+    public function store(TelkomselRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Data telkomsel berhasil ditambah');
     }
 
-    public function update(TelkomselUpdateRequest $request): RedirectResponse
+    public function update(TelkomselRequest $request): RedirectResponse
     {
         Telkomsel::where('slug', $request->input('slug'))
             ->update($request->validated());

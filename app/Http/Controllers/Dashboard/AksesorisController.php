@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aksesoris;
-use App\Http\Requests\Aksesoris\AksesorisStoreRequest;
-use App\Http\Requests\Aksesoris\AksesorisUpdateRequest;
+use App\Http\Requests\Aksesoris\AksesorisRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -21,13 +20,13 @@ class AksesorisController extends Controller
         return view('dashboard.aksesoris.index', compact('aksesoris'));
     }
 
-    public function store(AksesorisStoreRequest $request): RedirectResponse
+    public function store(AksesorisRequest $request): RedirectResponse
     {
         $request->make();
         return back()->with('success', 'Aksesoris berhasil ditambah');
     }
 
-    public function update(AksesorisUpdateRequest $request): RedirectResponse
+    public function update(AksesorisRequest $request): RedirectResponse
     {
         Aksesoris::where('slug', $request->input('slug'))
             ->update($request->validated());

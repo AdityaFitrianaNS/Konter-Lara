@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Axis;
+namespace App\Http\Requests\Xl;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\Rule;
 
-class AxisStoreRequest extends FormRequest
+class XlRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -24,7 +25,7 @@ class AxisStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'min:5', 'max:50', 'unique:axis'],
+            'nama' => ['required', 'min:5', 'max:50', Rule::unique('xl')->ignore($this->request->get('id'))],
             'masa_aktif' => ['required', 'min:5', 'max:50'],
             'kategori' => ['required', 'min:5', 'max:50'],
             'harga_asli' => ['required', 'min:3', 'max:11'],
@@ -34,7 +35,7 @@ class AxisStoreRequest extends FormRequest
 
     public function make()
     {
-        return auth()->user()->axis()->create([
+        return auth()->user()->xl()->create([
             'nama' => $this->nama,
             'slug' => strtolower(str_replace(' ', '-', $this->nama)),
             'masa_aktif' => $this->masa_aktif,
